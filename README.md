@@ -24,7 +24,6 @@ Beschrijving - @rafael.mindreau - 23/09/2016
 5. Hij maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work.
 6. Hij leert C++ op een moderne en flexiebele manier via tutorials op http://www.cplusplus.com/doc/tutorial/ **__Overbodig?__**
 
-```
 > Ik denk dat ik bij C++ niet echt van nul hoef te beginnen, ik heb al iets meer dan gewoon de elementaire kennis ervan opgedaan tijdens de vakanties. Van een boek ga ik niet veel leren, ik zie ook niet goed hoe je gaat meten of ik al dan >niet een boek heb gelezen, of tutorials heb gevolgd. Het lijkt mij allemaal nogal wat vaag. Ik hoop dat de einddoelen hiermee beter geschetst zijn. Ik heb deze ook beter in de werkvormen vervat!
 
 #### Motivatie - betrokkenheid:
