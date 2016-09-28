@@ -4,9 +4,9 @@ Project 2 - opvolgingsdocument Academiejaar 2016-2017
 
 =================================================================================
 
-Student:	Rafaël Mindreau
+Student:	RafaÃ«l Mindreau
 
-Mentor:		<in te vullen door de mentor>
+Mentor:		Joris Maervoet
 
 
 =================================================================================
@@ -23,7 +23,7 @@ instrument (waar MIDI omgezet wordt naar geluid) kiezen voor de MIDI input van d
 Einddoelen:
 
 1. De student weet hoe hij een VST/Audio-toepassing met JUCE in C++ moet schrijven.
-2. Hij verwerkt een Artificiële Intelligentie in de applicatie die verder improviseert op basis van wat de gebruiker speelt.
+2. Hij verwerkt een ArtificiÃ«le Intelligentie in de applicatie die verder improviseert op basis van wat de gebruiker speelt.
 3. Hij test dit systeem uitvoerig, en rapporteert de verschillende technieken die verwerkt worden in de AI.
 4. Hij voorziet een manier om deze toepassing vloeiend te doen verlopen, zodat er een minimale hoeveelheid traagheid is, om het geheel ensemble speelbaar te maken.
 
@@ -34,7 +34,7 @@ Ik ben begeesterd door de muziek en al zijn facetten. Ik experimenteer vaak met 
 
 Motivatie - grenzen verleggen:
 
-C++ is en blijft een serieuze uitdaging. Een artificiële intelligentie schrijven lijkt mij een zéér interessant onderwerp waarin ik ook verder wilde groeien.
+C++ is en blijft een serieuze uitdaging. Een artificiÃ«le intelligentie schrijven lijkt mij een zÃ©Ã©r interessant onderwerp waarin ik ook verder wilde groeien.
 
 Motivatie - professioneel profiel:
 
@@ -49,6 +49,16 @@ Kerndoelen:
 * Op basis van muziek-theorie systemen en akkoorden implementeren binnen een AI. Minstens 3-vingerig als proof-of-concept.
 * Grondig rapporteren wat de bevindingen zijn bij het testen van deze software, de gedragingen en reacties van de AI, en de harmonie met ingevoerde akkoorden.
 
+<mentor> - <28/09/2016>
+Rafael, een topvoorstel! En bovendien heb je niet zoveel werk meer aan de beschrijving.
+Alleen moet je je einddoelen Ã©Ã©n voor Ã©Ã©n nog eens afchecken of ze concreet en meetbaar (voor ons) zijn. Voor alle duidelijkheid: de einddoelen zijn de realisaties waar wij je aan het einde van de rit op zullen evalueren. Niet alle (studie-)activiteiten hoeven noodzakelijk in de einddoelen verwerkt te zitten. Een voorbeeld:
+ - de student maakt een proof-of-concept VST/Audio-toepassing met JUCE in C++. Deze toepassing leest de noten die binnenkomen via een externe MIDI controller, transponeert ze en sluist ze door naar een MIDI-output.
+ - de student maakt een rapport van de mogelijke A.I.-technieken die kunnen gebruikt worden voor het vervolledigen van of het verder improviseren op een muzikale compositie. Hij maakt een inschatting hoe de technieken kunnen worden ingezet voor polyfonie en bij online/offline leren.
+ - de student maakt een demonstrator met JUCE die ... ... ... (werk af en wees concreet).
+ - de student maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work
+Probeer bij de werkvormen zo volledig mogelijk te zijn: hoe ga je C++ leren? Misschien kan je je huidige einddoelen 2/3/4 ook verhuizen naar de werkvormen. 
+ps: wat betreft de A.I.-setup is het me nog niet duidelijk of de gebruiker volledig stopt met spelen, of of hij nog verder doet tijdens of na de improvisatie door de computer - dit maakt algoritmisch-technisch weldegelijk een verschil
+pps: ik stuur je al wat info via e-mail
 
 =================================================================================
 Planning - <datum van eerste ingave> (op te stellen nadat je voorstel is goedgekeurd)
