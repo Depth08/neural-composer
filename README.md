@@ -63,8 +63,11 @@ Verschillende facetten van dit project kunnen mij later in mijn voordeel pleiten
 >  - de student maakt een rapport van de mogelijke A.I.-technieken die kunnen gebruikt worden voor het vervolledigen van of het verder improviseren op een muzikale compositie. Hij maakt een inschatting hoe de technieken kunnen worden ingezet voor polyfonie en bij online/offline leren.
 >  - de student maakt een demonstrator met JUCE die ... ... ... (werk af en wees concreet).
 >  - de student maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work
+>
 > Probeer bij de werkvormen zo volledig mogelijk te zijn: hoe ga je C++ leren? Misschien kan je je huidige einddoelen 2/3/4 ook verhuizen naar de werkvormen. 
+>
 > ps: wat betreft de A.I.-setup is het me nog niet duidelijk of de gebruiker volledig stopt met spelen, of of hij nog verder doet tijdens of na de improvisatie door de computer - dit maakt algoritmisch-technisch weldegelijk een verschil
+>
 > pps: ik stuur je al wat info via e-mail
 
 #### @rafael.mindreau - <29/09/2016>
@@ -77,6 +80,20 @@ Verschillende facetten van dit project kunnen mij later in mijn voordeel pleiten
 > C++ leren is niet zo evident. Zeker tegenwoordig. We zijn tegenwoordig als jongeren zo gewend aan higher level languages. Gelukkig ben ik al een paar jaar zo hier en daar wat bezig geweest met classic C++, in de mate dat ik pointers volledig versta, en kan gebruiken. Ik ben het al wat gewend van bij te leren via tutorials. Ik heb geprobeerd met boeken maar, wel het is vooral te wijten aan een conditie in mijn ogen die boeken lezen onnoemelijk ambetant maakt, maar het heeft ook te maken met de langdradigheid en volledigheid van boeken die mij langs de kant slingeren in no-time. Memory management op schaal van iets grotere applicaties heb ik nog nooit gedaan. Ik weet dat memory leaks de n°1 enemy zijn in C++, en weet hoe ik ze moet vermijden (deconstructors schrijven en delete gebruiken, althans op heap). Maar ik ben het heel zeker dat ik nog veel moet bijleren in C++, over de dingen die ik hier nog niet heb opgesomd wel te verstaan. Omdat ik met een framework moet werken wil ik mij gezien de tijd enkel beperken tot wat zeker nodig is.
 > 
 > Wat betreft neurale netwerken ben ik enorm "excited" als je zegt dat deze out-of-the-box kunnen worden gebruikt. Ik had inderdaad al een paar libraries gevonden op het net voor C++ specifiek. Ik ga inderdaad in het tijdsdomein iets moeten verzinnen als een soort ven schedueling voor deze rap te doen reageren op zo'n optimaal mogelijk niveau. Ergens dacht ik ook nog om GPU computing te gebruiken met OpenCL maar dan kan ik evengoed een UFO gaan bouwen, ik denk dat ik het realistisch ga moeten houden.
+
+#### @joris.maervoet - <03/10/2016>
+> Rafael, je bent er echt bijna.
+> - Als een einddoel echt een complex systeem beschrijft, splits je het beter op in (chronologische) deelstappen. Dat heb jij ook proberen doen, maar je einddoel 1 is al heel jouw systeem. Einddoel 3 en 4 zijn in feite hetzelfde. Vandaar mijn voorstel hierboven (feedback 28/09/2016) om einddoelen te formuleren die stapje voor stapje het systeem opbouwen: (1) JUCE verkennen en aan MIDI hangen, (2) studie A.I. technieken (3) integratie A.I. techniek (4) kort rapport. Doe jij nog eens een poging?
+> - "De gebruiker kan nog steeds spelen, waardoor de AI rap moet kunnen inspelen op veranderingen." -> misschien moet je de lat voor jezelf niet zo hoog leggen en dit weglaten?
+> - einddoel 6 is niet toetsbaar en mag inderdaad weg. Maak je maar niet teveel zorgen over C++. Het is een trouwens een taal die je toelaat high level en low level te programmeren - dus het kan in JUCE nog alle kanten op.
+> - schrijf je nog bij de werkvorm dat je een neuraal netwerk zal kiezen en integreren in je demonstrator?
+>
+> Als dit in orde is, keur ik goed.
+>
+> ps: UFOs hoef je inderdaad niet te bouwen
+>
+> pps: het zou kunnen dat je je testen aanvankelijk zuiver melodisch start en dat je pas daarna ritme toevoegt als een nieuwe dimensie, maar dat zijn zorgen voor later
+
 
 Planning - <datum van eerste ingave> (op te stellen nadat je voorstel is goedgekeurd)
 -------------------------------------------------------------------------------------
