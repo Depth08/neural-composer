@@ -17,14 +17,10 @@ Beschrijving - @rafael.mindreau - 23/09/2016
 
 #### Einddoelen:
 
-1. De student ontwikkelt een proof-of-concept VST/Audio-toepassing met Juce in C++. De toepassing luistert naar een sequentie noten via MIDI input. De toepassing zal op basis van een aantal parameters verder improviseren, en de MIDI output samenvoegen met de input. De gebruiker kan nog steeds spelen, waardoor de AI rap moet kunnen inspelen op veranderingen.
-2. Hij schrijft een rapport over de ontwikkeling van de AI binnen het project. De mogelijke implementaties, het gekozen traject, waarom, en de verslaggeving van verschillende soorten testen in detail.
-3. Hij schrijft een toepassing die gebruik maakt van neurale netwerken voor de improvisatie.
-4. Hij schrijft een demonstrator in JUCE die duidelijk aantoont dat de AI in staat is om op tempo van de gebruiker, verder te improviseren op de gespeelde noten, met tal van instellingen om het rapporteren van verschillende testen te kaderen.
-5. Hij maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work.
-6. Hij leert C++ op een moderne en flexiebele manier via tutorials op http://www.cplusplus.com/doc/tutorial/ **__Overbodig?__**
-
-> Ik denk dat ik bij C++ niet echt van nul hoef te beginnen, ik heb al iets meer dan gewoon de elementaire kennis ervan opgedaan tijdens de vakanties. Van een boek ga ik niet veel leren, ik zie ook niet goed hoe je gaat meten of ik al dan >niet een boek heb gelezen, of tutorials heb gevolgd. Het lijkt mij allemaal nogal wat vaag. Ik hoop dat de einddoelen hiermee beter geschetst zijn. Ik heb deze ook beter in de werkvormen vervat!
+1. De student verkent het JUCE framework en zoekt naar een manier om MIDI Input te interpreteren, en terug uit te voeren.
+2. Hij implementeert een AI op basis van neurale netwerken binnen de applicatie.
+3. Hij schrijft een demonstrator in JUCE die duidelijk aantoont dat de AI in staat is om op tempo van de gebruiker, verder te improviseren op de gespeelde noten, met tal van instellingen om het rapporteren van verschillende testen te kaderen.
+4. Hij maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work.
 
 #### Motivatie - betrokkenheid:
 
@@ -52,7 +48,8 @@ Verschillende facetten van dit project kunnen mij later in mijn voordeel pleiten
 * Uitwerken hoe er binnen het JUCE framework, of binnen VST3 (Steinberg) **met MIDI kan gewerkt worden.**
 * C++ bij schaven waar het nodig is met **http://www.cplusplus.com/doc/tutorial/**.
 * Onderzoeken hoe **neurale netwerken** gebruikt kunnen worden voor de improvisatie van muziek.
-* Onderzoeken hoe deze neurale netwerken te laten werken **waar het tijdsdomein van belang is**.
+* Onderzoeken hoe deze neurale netwerken te laten werken **waar het tijdsdomein van belang is**
+* Neurale netwerken gebruiken binnen de demonstrator.
 * Grondig **rapporteren** hoe de implementatie van **algoritmen, en neurale netwerken** in de toepassingen verliepen.
 
 #### @joris.maervoet - <28/09/2016>
