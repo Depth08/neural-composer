@@ -91,6 +91,12 @@ Verschillende facetten van dit project kunnen mij later in mijn voordeel pleiten
 >
 > pps: het zou kunnen dat je je testen aanvankelijk zuiver melodisch start en dat je pas daarna ritme toevoegt als een nieuwe dimensie, maar dat zijn zorgen voor later
 
+#### @joris.maervoet - <05/10/2016>
+> Rafael, aiai je einddoelen zijn niet meer concreet+toetsbaar !!!
+> Kan je misschien gewoon volgende einddoelen overnemen? Dan keur ik het goed.
+>   1. De student ontwikkelt een VST/Audio-testapplicatie met Juce in C++. De toepassing kan MIDI-input verwerken en terug uitvoeren.
+>   2. De student ontwikkelt een proof-of-concept VST/Audio-toepassing met Juce in C++. Deze A.I.-toepassing luistert naar een sequentie noten via MIDI input en gebruikt een neuraal netwerk om op basis van een aantal parameters verder te improviseren op de muzikale compositie, en voegt deze MIDI output samenvoegen met de input.
+>   3. Hij maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work.
 
 Planning - <datum van eerste ingave> (op te stellen nadat je voorstel is goedgekeurd)
 -------------------------------------------------------------------------------------
