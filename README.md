@@ -17,10 +17,9 @@ Beschrijving - @rafael.mindreau - 23/09/2016
 
 #### Einddoelen:
 
-1. De student verkent het JUCE framework en zoekt naar een manier om MIDI Input te interpreteren, en terug uit te voeren.
-2. Hij implementeert een AI op basis van neurale netwerken binnen de applicatie.
-3. Hij schrijft een demonstrator in JUCE die duidelijk aantoont dat de AI in staat is om op tempo van de gebruiker, verder te improviseren op de gespeelde noten, met tal van instellingen om het rapporteren van verschillende testen te kaderen.
-4. Hij maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work.
+1. De student ontwikkelt een VST/Audio-testapplicatie met Juce in C++. De toepassing kan MIDI-input verwerken en terug uitvoeren.
+2. De student ontwikkelt een proof-of-concept VST/Audio-toepassing met Juce in C++. Deze A.I.-toepassing luistert naar een sequentie noten via MIDI input en gebruikt een neuraal netwerk om op basis van een aantal parameters verder te improviseren op de muzikale compositie, en voegt deze MIDI output samenvoegen met de input.
+3. Hij maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work.
 
 #### Motivatie - betrokkenheid:
 
