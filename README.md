@@ -51,6 +51,7 @@ Verschillende facetten van dit project kunnen mij later in mijn voordeel pleiten
 * Neurale netwerken gebruiken binnen de demonstrator.
 * Grondig **rapporteren** hoe de implementatie van **algoritmen, en neurale netwerken** in de toepassingen verliepen.
 
+<!--- 
 #### @joris.maervoet - <28/09/2016>
 > Rafael, een topvoorstel! En bovendien heb je niet zoveel werk meer aan de beschrijving.
 > Alleen moet je je einddoelen één voor één nog eens afchecken of ze concreet en meetbaar (voor ons) zijn. Voor alle duidelijkheid: de einddoelen zijn de realisaties 
@@ -96,6 +97,10 @@ Verschillende facetten van dit project kunnen mij later in mijn voordeel pleiten
 >   1. De student ontwikkelt een VST/Audio-testapplicatie met Juce in C++. De toepassing kan MIDI-input verwerken en terug uitvoeren.
 >   2. De student ontwikkelt een proof-of-concept VST/Audio-toepassing met Juce in C++. Deze A.I.-toepassing luistert naar een sequentie noten via MIDI input en gebruikt een neuraal netwerk om op basis van een aantal parameters verder te improviseren op de muzikale compositie, en voegt deze MIDI output samenvoegen met de input.
 >   3. Hij maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work.
+--->
+
+#### @joris.maervoet - <06/10/2016>
+> goedgekeurd
 
 Planning - <datum van eerste ingave> (op te stellen nadat je voorstel is goedgekeurd)
 -------------------------------------------------------------------------------------
