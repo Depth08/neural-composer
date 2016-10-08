@@ -43,6 +43,8 @@ Verschillende facetten van dit project kunnen mij later in mijn voordeel pleiten
 
 > 1.a, 2.a, 2.b, 6.e, 8.i, 8.j, 10.n
 
+#### Werkvormen:
+
 * De **Tutorials** op de website van https://www.juce.com/ volgen om tot een succesvolle eerste applicatie te komen.
 * Uitwerken hoe er binnen het JUCE framework, of binnen VST3 (Steinberg) **met MIDI kan gewerkt worden.**
 * C++ bij schaven waar het nodig is met **http://www.cplusplus.com/doc/tutorial/**.
@@ -51,7 +53,7 @@ Verschillende facetten van dit project kunnen mij later in mijn voordeel pleiten
 * Neurale netwerken gebruiken binnen de demonstrator.
 * Grondig **rapporteren** hoe de implementatie van **algoritmen, en neurale netwerken** in de toepassingen verliepen.
 
-<!--- 
+<!--
 #### @joris.maervoet - <28/09/2016>
 > Rafael, een topvoorstel! En bovendien heb je niet zoveel werk meer aan de beschrijving.
 > Alleen moet je je einddoelen één voor één nog eens afchecken of ze concreet en meetbaar (voor ons) zijn. Voor alle duidelijkheid: de einddoelen zijn de realisaties 
@@ -97,15 +99,19 @@ Verschillende facetten van dit project kunnen mij later in mijn voordeel pleiten
 >   1. De student ontwikkelt een VST/Audio-testapplicatie met Juce in C++. De toepassing kan MIDI-input verwerken en terug uitvoeren.
 >   2. De student ontwikkelt een proof-of-concept VST/Audio-toepassing met Juce in C++. Deze A.I.-toepassing luistert naar een sequentie noten via MIDI input en gebruikt een neuraal netwerk om op basis van een aantal parameters verder te improviseren op de muzikale compositie, en voegt deze MIDI output samenvoegen met de input.
 >   3. Hij maakt in een kort rapport een kritische evaluatie van de uitgewerkte demonstrator en kadert future work.
---->
+-->
 
 #### @joris.maervoet - <06/10/2016>
 > goedgekeurd
 
-Planning - <datum van eerste ingave> (op te stellen nadat je voorstel is goedgekeurd)
+Planning - <08/10/2016> (op te stellen nadat je voorstel is goedgekeurd)
 -------------------------------------------------------------------------------------
 
-> Hou hier je werkplanning bij, op te stellen nadat je voorstel is goedgekeurd
+https://docs.google.com/spreadsheets/d/1XgQruoB_ySyDcglsJhUwQYiG0AE8MQ-1FZjhBDiEDrQ/edit?usp=sharing
+
+```
+Voor de planning word gebruik gemaakt van google sheets. De planning is daar overzichtelijker dan het te proberen gieten in een tabel in markdown of text. Commentaar kan worden toegevoegd, maar indien het vereist is kan full permission met een link doorgegeven worden (don't share it with other students)
+```
 
 Logboek
 -------
