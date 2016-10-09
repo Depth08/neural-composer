@@ -19,7 +19,8 @@
 */
 class MainContentComponent
 	: public Component,
-	public MidiInputCallback
+	private MidiInputCallback,
+	private ComboBox::Listener
 {
 public:
     //==============================================================================
@@ -28,22 +29,48 @@ public:
 
     void paint (Graphics&) override;
     void resized() override;
-
-	void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& message) override;
+	void updateMessageText(const MidiMessage& message, const String& source);
 
 private:
     //==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainContentComponent);
 
+	static String getMidiMessageDescription(const MidiMessage& m)
+	{
+		if (m.isNoteOn())           return "Note on " + MidiMessage::getMidiNoteName(m.getNoteNumber(), true, true, 3);
+		if (m.isNoteOff())          return "Note off " + MidiMessage::getMidiNoteName(m.getNoteNumber(), true, true, 3);
+		if (m.isProgramChange())    return "Program change " + String(m.getProgramChangeNumber());
+		if (m.isPitchWheel())       return "Pitch wheel " + String(m.getPitchWheelValue());
+		if (m.isAftertouch())       return "After touch " + MidiMessage::getMidiNoteName(m.getNoteNumber(), true, true, 3) + ": " + String(m.getAfterTouchValue());
+		if (m.isChannelPressure())  return "Channel pressure " + String(m.getChannelPressureValue());
+		if (m.isAllNotesOff())      return "All notes off";
+		if (m.isAllSoundOff())      return "All sound off";
+		if (m.isMetaEvent())        return "Meta event";
+
+		if (m.isController())
+		{
+			String name(MidiMessage::getControllerName(m.getControllerNumber()));
+
+			if (name.isEmpty())
+				name = "[" + String(m.getControllerNumber()) + "]";
+
+			return "Controller " + name + ": " + String(m.getControllerValue());
+		}
+
+		return String::toHexString(m.getRawData(), m.getRawDataSize());
+	}
+
 	String labelCentreText = "No MIDI strokes yet!";
 	Colour backgroundColor = Colour(0xff222222);
 
 	AudioDeviceManager deviceManager;
-	TextEditor midiLogger;
+	ComboBox comboBoxMidiList;
 
 	int lastInputIndex;
 
 	void setMidiInput(int index);
+	void comboBoxChanged(ComboBox* box) override;
+	void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& message) override;
 };
 
 

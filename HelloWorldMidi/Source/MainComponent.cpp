@@ -7,6 +7,7 @@
 */
 
 #include "MainComponent.h"
+#include "IncomingMessageCallback.h"
 
 
 //==============================================================================
@@ -14,10 +15,17 @@ MainContentComponent::MainContentComponent()
 {
     setSize (600, 400);
 
+	// Combo Box
+	addAndMakeVisible(comboBoxMidiList);
+	comboBoxMidiList.setTextWhenNoChoicesAvailable("No devices found!");
+
 	lastInputIndex = 0;
 
 	// Get all devices
 	const StringArray inputDevices(MidiInput::getDevices());
+	comboBoxMidiList.addItemList(inputDevices, 1);
+	comboBoxMidiList.addListener(this);
+
 	bool found = false;
 	
 	// Iterate over devices and grab one that is enabled
@@ -26,12 +34,14 @@ MainContentComponent::MainContentComponent()
 		if (deviceManager.isMidiInputEnabled(inputDevices[i]))
 		{
 			setMidiInput(i);
-			found = true;
 			break;
 		}
 	}
 
-	if (!found) this->labelCentreText = "No devices found!";
+	if (comboBoxMidiList.getSelectedId() == 0)
+	{
+		setMidiInput(0);
+	}
 }
 
 MainContentComponent::~MainContentComponent()
@@ -54,11 +64,20 @@ void MainContentComponent::resized()
     // update their positions.
 
 	this->backgroundColor = Colour((getWidth() / 1092.0) * 255, 50, 100);
+	this->comboBoxMidiList.setBounds(20, 20, getWidth() - 40, 30);
 }
 
 void MainContentComponent::handleIncomingMidiMessage(MidiInput * source, const MidiMessage & message)
 {
-	labelCentreText = "Pressed: " + message.getNoteNumber();
+	(new IncomingMessageCallback(this, message, source->getName()))->post();
+}
+
+void MainContentComponent::updateMessageText(const MidiMessage & message, const String & source)
+{
+	const String description(getMidiMessageDescription(message));
+
+	labelCentreText = description;
+	repaint();
 }
 
 void MainContentComponent::setMidiInput(int index)
@@ -76,6 +95,18 @@ void MainContentComponent::setMidiInput(int index)
 	}
 
 	deviceManager.addMidiInputCallback(newInput, this);
+	comboBoxMidiList.setSelectedId(index + 1, dontSendNotification);
+
+	labelCentreText = "Selected: " + list[index];
+	this->repaint();
 
 	lastInputIndex = index;
+}
+
+void MainContentComponent::comboBoxChanged(ComboBox * box)
+{
+	if (box == &comboBoxMidiList)
+	{
+		setMidiInput(comboBoxMidiList.getSelectedItemIndex());
+	}
 }

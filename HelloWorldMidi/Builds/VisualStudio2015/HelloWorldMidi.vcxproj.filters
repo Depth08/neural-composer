@@ -355,6 +355,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\IncomingMessageCallback.cpp">
+      <Filter>HelloWorldMidi\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\MainComponent.cpp">
       <Filter>HelloWorldMidi\Source</Filter>
     </ClCompile>
@@ -2040,6 +2043,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\IncomingMessageCallback.h">
+      <Filter>HelloWorldMidi\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\MainComponent.h">
       <Filter>HelloWorldMidi\Source</Filter>
     </ClInclude>
