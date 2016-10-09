@@ -11,8 +11,8 @@
 
 */
 
-#ifndef __JUCE_APPCONFIG_JRYP6M__
-#define __JUCE_APPCONFIG_JRYP6M__
+#ifndef __JUCE_APPCONFIG_UJDUJ1__
+#define __JUCE_APPCONFIG_UJDUJ1__
 
 //==============================================================================
 // [BEGIN_USER_CODE_SECTION]
@@ -220,4 +220,4 @@
 #endif
 
 
-#endif  // __JUCE_APPCONFIG_JRYP6M__
+#endif  // __JUCE_APPCONFIG_UJDUJ1__

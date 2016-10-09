@@ -10,8 +10,8 @@
 
 */
 
-#ifndef __APPHEADERFILE_JRYP6M__
-#define __APPHEADERFILE_JRYP6M__
+#ifndef __APPHEADERFILE_UJDUJ1__
+#define __APPHEADERFILE_UJDUJ1__
 
 #include "AppConfig.h"
 
@@ -45,4 +45,4 @@ namespace ProjectInfo
 }
 #endif
 
-#endif   // __APPHEADERFILE_JRYP6M__
+#endif   // __APPHEADERFILE_UJDUJ1__
