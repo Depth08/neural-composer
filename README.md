@@ -1,12 +1,12 @@
 Project 2 - opvolgingsdocument Academiejaar 2016-2017
 =====================================================
 
-## Student:	Rafaël Mindreau
+### Student:	Rafaël Mindreau
 
-## Mentor:		Joris Maervoet
+### Mentor:		Joris Maervoet
 
-Beschrijving - @rafael.mindreau - 23/09/2016
--------------------------
+## Beschrijving
+#### @rafael.mindreau - 23/09/2016
 
 #### Onderwerp:
 
@@ -122,3 +122,8 @@ Logboek
 > Als je dat wil, mag je de zuiver technische informatie in een aanvullend 'technisch logboek'
 > bijhouden (binnen je repository). In dat geval kan je hier bij de verschillende entries verwijzen
 > naar dat technisch logboek.
+
+| Datum    | Activiteit       |
+| -------- | ---------------- |
+| 09/10    | Juce Test-applicatie aangemaakt, hello world werkt, apparaten kunnen worden weergegeven en geselecteerd. MIDI messages worden doorgegeven. Het proces ging niet zo heel moeizaam ondanks C++. JUCE is vrij High-level. De tutorials van op de site compileerden niet meer, wat mij forceerde diep in te gaan op de code-voorbeelden. De Hello World die geschreven werd heeft een combo-box die de apparaten oplijst met MidiInput::getDevices(). Om de messages van de MIDI toestellen op het scherm te krijgen was wat meer handwerk nodig. Deze kwamen van een OS-thread die in een soort message pump naar de GUI moesten worden gebracht. Voor de rest lijkt JUCE mij het ideale framework! Veel tijd uitgespaard! |
+| 13/10    | Het 88-toetsen keyboard laat het van zich afweten. Dit maakt development tests in het basregister moeilijk met het 49-toetsen keyboard dat mij nog rest... |
