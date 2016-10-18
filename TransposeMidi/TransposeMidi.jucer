@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="nxI3v5" name="TransposeMidi" projectType="guiapp" version="1.0.0"
@@ -81,3 +82,84 @@
   </MODULES>
   <JUCEOPTIONS/>
 </JUCERPROJECT>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="PbZjhe" name="TransposeMidi" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="com.yourcompany.TransposeMidi" includeBinaryInAppConfig="1"
+              jucerVersion="4.2.4">
+  <MAINGROUP id="u4EJn6" name="TransposeMidi">
+    <GROUP id="{59FE0852-D526-CFF7-0184-6238D675C6EF}" name="Source">
+      <FILE id="Mcd6NH" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+      <FILE id="TyoBHr" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="FYlA3T" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2015 targetFolder="Builds/VisualStudio2015">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="2" targetName="TransposeMidi"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="TransposeMidi"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../home/rafael/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../home/rafael/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2015>
+    <CODEBLOCKS_LINUX targetFolder="Builds/CodeBlocksLinux">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="TransposeMidi"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="TransposeMidi"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_video" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_opengl" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_events" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_core" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../usr/bin"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../usr/bin"/>
+      </MODULEPATHS>
+    </CODEBLOCKS_LINUX>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
+>>>>>>> master
