@@ -11,33 +11,28 @@
 
 //==============================================================================
 MainContentComponent::MainContentComponent()
+	: virtualKeyboard(this->virtualKeyboardState, MidiKeyboardComponent::horizontalKeyboard)
 {
-    setSize (600, 400);
+    setSize (600, 200);
 
-	this->comboBoxMidiDevices.setTextWhenNoChoicesAvailable("No MIDI devices available");
-	addAndMakeVisible(this->comboBoxMidiDevices);
+	addAndMakeVisible(comboBoxDevices);
+	addAndMakeVisible(virtualKeyboard);
+	addAndMakeVisible(sliderTransposeStep);
 
-	// Get all devices
-	const StringArray inputDevices(MidiInput::getDevices());
-	comboBoxMidiDevices.addItemList(inputDevices, 1);
-	comboBoxMidiDevices.addListener(this);
+	// Prepare gui components
+	this->comboBoxDevices.setTextWhenNoChoicesAvailable("No Hardware Devices Available");
+	this->comboBoxDevices.setTextWhenNothingSelected("Select device to get started");
+	
+	this->sliderTransposeStep.setEnabled(false);
+	this->sliderTransposeStep.setSliderStyle(Slider::LinearHorizontal);
+	this->sliderTransposeStep.setRange(0, 12, 1);
 
-	bool found = false;
+	// Let this component listen for changes in the virtual Midi Keyboard
+	this->virtualKeyboardState.addListener(this);
 
-	// Iterate over devices and grab one that is enabled
-	for (int i = 0; i < inputDevices.size(); ++i)
-	{
-		if (deviceManager.isMidiInputEnabled(inputDevices[i]))
-		{
-			setMidiInput(i);
-			break;
-		}
-	}
-
-	if (comboBoxMidiDevices.getSelectedId() == 0)
-	{
-		setMidiInput(0);
-	}
+	// Populate comboBox list with connected MIDI devices
+	refreshMidiInputsAndPushToList(&this->comboBoxDevices);
+	this->comboBoxDevices.addListener(this); // Listen for changes
 }
 
 MainContentComponent::~MainContentComponent()
@@ -46,61 +41,82 @@ MainContentComponent::~MainContentComponent()
 
 void MainContentComponent::paint (Graphics& g)
 {
-    g.fillAll (Colour (0xff6202e0));
+    g.fillAll (Colour (0xff890099));
 }
 
 void MainContentComponent::resized()
 {
-	comboBoxMidiDevices.setBounds(20, 20, this->getWidth() - 40, 30);
+	Rectangle<int> screenSpace(this->getBounds());
+
+	this->comboBoxDevices.setBounds(screenSpace.removeFromTop(50).reduced(10));
+	this->virtualKeyboard.setBounds(screenSpace.removeFromTop(100).reduced(10));
+	this->sliderTransposeStep.setBounds(screenSpace.removeFromTop(50).reduced(10));
 }
 
-void MainContentComponent::setMidiInput(int index)
+void MainContentComponent::comboBoxChanged(ComboBox * comboBoxThatHasChanged)
 {
-	// Get the same list? Not DRY?! Will figure this out later
-	const StringArray list(MidiInput::getDevices());
-
-	deviceManager.removeMidiInputCallback(list[this->lastInputIndex], this);
-
-	const String newInput(list[index]);
-
-	if (!deviceManager.isMidiInputEnabled(newInput))
+	if (comboBoxThatHasChanged == &this->comboBoxDevices)
 	{
-		deviceManager.setMidiInputEnabled(newInput, true);
+		int selectedIndex = comboBoxDevices.getSelectedItemIndex();
+
+		setInputDevice(comboBoxDevices.getItemText(selectedIndex));
 	}
+}
 
-	deviceManager.addMidiInputCallback(newInput, this);
-	comboBoxMidiDevices.setSelectedId(index + 1, dontSendNotification);
+void MainContentComponent::handleNoteOn(MidiKeyboardState * source, int midiChannel, int midiNoteNumber, float velocity)
+{
+}
 
-	this->repaint();
-
-	lastInputIndex = index;
+void MainContentComponent::handleNoteOff(MidiKeyboardState * source, int midiChannel, int midiNoteNumber, float velocity)
+{
 }
 
 void MainContentComponent::handleIncomingMidiMessage(MidiInput * source, const MidiMessage & message)
 {
-
+	this->virtualKeyboardState.processNextMidiEvent(message);
+	this->virtualKeyboardState.processNextMidiEvent(transposeMidiMessage(message));
 }
 
-void MainContentComponent::prepareToPlay(int samplesPerBlockExpected, double sampleRate)
+void MainContentComponent::refreshMidiInputsAndPushToList(ComboBox * list)
 {
-	currentSampleRate = sampleRate;
-	updateAngleDelta();
+	const StringArray devices(MidiInput::getDevices());
+
+	list->clear();
+	list->addItemList(devices, 1);
 }
 
-void MainContentComponent::releaseResources()
+void MainContentComponent::setInputDevice(const String newDevice)
 {
+	midiDeviceManager.removeMidiInputCallback(currentDevice, this);
+
+	if (!midiDeviceManager.isMidiInputEnabled(newDevice))
+		midiDeviceManager.setMidiInputEnabled(newDevice, this);
+
+	midiDeviceManager.addMidiInputCallback(newDevice, this);
+
+	currentDevice = newDevice;
+	this->sliderTransposeStep.setEnabled(true);
 }
 
-void MainContentComponent::getNextAudioBlock(const AudioSourceChannelInfo & bufferToFill)
+MidiMessage MainContentComponent::transposeMidiMessage(const MidiMessage & message)
 {
-}
+	MidiMessage newMessage;
 
-void MainContentComponent::updateAngleDelta()
-{
+	if (this->sliderTransposeStep.getValue() > 0)
+	{
+		int transpose = sliderTransposeStep.getValue();
 
-}
+		if (message.isNoteOn())
+		{
+			newMessage = MidiMessage::noteOn(message.getChannel(), message.getNoteNumber() + (transpose), message.getVelocity());
+		}
 
-void MainContentComponent::comboBoxChanged(ComboBox * box)
-{
+		if (message.isNoteOff())
+		{
+			newMessage = MidiMessage::noteOff(message.getChannel(), message.getNoteNumber() + (transpose), message.getVelocity());
+		}
 
+	}
+
+	return newMessage;
 }

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="PbZjhe" name="TransposeMidi" projectType="guiapp" version="1.0.0"
+<JUCERPROJECT id="nxI3v5" name="TransposeMidi" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.TransposeMidi" includeBinaryInAppConfig="1"
               jucerVersion="4.2.4">
-  <MAINGROUP id="u4EJn6" name="TransposeMidi">
-    <GROUP id="{59FE0852-D526-CFF7-0184-6238D675C6EF}" name="Source">
-      <FILE id="Mcd6NH" name="MainComponent.cpp" compile="1" resource="0"
+  <MAINGROUP id="bBB3Y1" name="TransposeMidi">
+    <GROUP id="{FA3C34B6-5BD6-2A46-9A70-AF5B77792124}" name="Source">
+      <FILE id="mFiPH5" name="ExternalMidiMessageCallback.cpp" compile="1"
+            resource="0" file="Source/ExternalMidiMessageCallback.cpp"/>
+      <FILE id="eZeLtt" name="ExternalMidiMessageCallback.h" compile="0"
+            resource="0" file="Source/ExternalMidiMessageCallback.h"/>
+      <FILE id="AoEOmb" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
-      <FILE id="TyoBHr" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
-      <FILE id="FYlA3T" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="xMvty6" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="xLOO0Y" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
@@ -36,6 +40,28 @@
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
       </MODULEPATHS>
     </VS2015>
+    <CODEBLOCKS_WINDOWS targetFolder="Builds/CodeBlocksWindows">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="2" targetName="TransposeMidi"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="TransposeMidi"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+      </MODULEPATHS>
+    </CODEBLOCKS_WINDOWS>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>

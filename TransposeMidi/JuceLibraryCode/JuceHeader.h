@@ -10,8 +10,8 @@
 
 */
 
-#ifndef __APPHEADERFILE_PBZJHE__
-#define __APPHEADERFILE_PBZJHE__
+#ifndef __APPHEADERFILE_NXI3V5__
+#define __APPHEADERFILE_NXI3V5__
 
 #include "AppConfig.h"
 
@@ -46,4 +46,4 @@ namespace ProjectInfo
 }
 #endif
 
-#endif   // __APPHEADERFILE_PBZJHE__
+#endif   // __APPHEADERFILE_NXI3V5__

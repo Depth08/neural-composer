@@ -18,8 +18,9 @@
     your controls and content.
 */
 class MainContentComponent
-	: public AudioAppComponent,
+	: public Component,
 	private ComboBox::Listener,
+	private MidiKeyboardStateListener,
 	private MidiInputCallback
 {
 public:
@@ -34,19 +35,25 @@ private:
     //==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainContentComponent);
 
-	ComboBox comboBoxMidiDevices;
-	AudioDeviceManager deviceManager;
-	
-	int lastInputIndex;
-	double currentSampleRate, currentAngle, angleDelta;
+	// GUI Components
+	ComboBox comboBoxDevices;
+	Slider sliderTransposeStep;
+	MidiKeyboardState virtualKeyboardState; // Backend part of the GUI keyboard
+	MidiKeyboardComponent virtualKeyboard;
+	AudioDeviceManager midiDeviceManager;
+	String currentDevice;
 
-	void setMidiInput(int index);
-	void comboBoxChanged(ComboBox* box) override;
-	void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& message) override;
-	void prepareToPlay(int samplesPerBlockExpected, double sampleRate) override;
-	void releaseResources() override;
-	void getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill) override;
-	void updateAngleDelta();
+	void comboBoxChanged(ComboBox *comboBoxThatHasChanged) override;
+
+	void handleNoteOn(MidiKeyboardState *source, int midiChannel, int midiNoteNumber, float velocity) override;
+	void handleNoteOff(MidiKeyboardState *source, int midiChannel, int midiNoteNumber, float velocity) override;
+
+	void handleIncomingMidiMessage(MidiInput *source, const MidiMessage &message) override;
+
+	void refreshMidiInputsAndPushToList(ComboBox* list);
+	void setInputDevice(const String newDevice);
+
+	MidiMessage transposeMidiMessage(const MidiMessage& message);
 };
 
 

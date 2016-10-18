@@ -11,8 +11,8 @@
 
 */
 
-#ifndef __JUCE_APPCONFIG_PBZJHE__
-#define __JUCE_APPCONFIG_PBZJHE__
+#ifndef __JUCE_APPCONFIG_NXI3V5__
+#define __JUCE_APPCONFIG_NXI3V5__
 
 //==============================================================================
 // [BEGIN_USER_CODE_SECTION]
@@ -221,4 +221,4 @@
 #endif
 
 
-#endif  // __JUCE_APPCONFIG_PBZJHE__
+#endif  // __JUCE_APPCONFIG_NXI3V5__
