@@ -129,3 +129,21 @@ Logboek
 | 13/10    | Het 88-toetsen keyboard laat het van zich afweten. Dit maakt development tests in het basregister moeilijk met het 49-toetsen keyboard dat mij nog rest... |
 | 13/10    | Aanmaak van de Transpose-Test is gebeurd. Deze test toetst het aanmaken van custom Midi Messages in conjunctie met bestaande input van een extern keyboard. De bedoeling is om met een slider de stap tussen de gespeelde noot te maken. Seconde, terts, tot en met octaaf. Om dit goed weer te geven zal de output voorlopig als sinusgolf binnen de applicatie blijven. Complicaties liggen op mijn weg om de MIDI door te voeren naar een andere applicatie. Het zou in de toekomst slim zijn om een debug checkbox toe te voegen die de MIDI als sinusgolven zal weergeven. De test is nog niet af. |
 | 18/10    | Afwerking van de Transpose-Test. De applicatie gebruikt uiteindelijk een on-board midi keyboard component in plaats van de eerder geplande sinusgolven (dewelke het eerder moeilijker maakten). Let wel op dat enkel input van externe instrumenten worden getransponeerd en weergegeven in de GUI. Je kan ook drukken op toetsen in de GUI, maar deze worden niet getransponeerd. Met een slider kan je kiezen hoeveel semi-tonen je transponeert. ![Image of Transpose Test](img/Milestone1.jpg) |
+
+Tussentijdse rapportering #1
+---------------------------
+#### Stand van zaken
+> JUCE framework was de entry-point voor dit project. De werking ervan moest worden geleerd. Uiteindelijk is JUCE een vrij High-Level Framework in C++ met tal van gelijkenissen met eender welke andere bekende UI zoals winforms, of Java Swing. De werking is vrij robuust, en de API is zéér transparant geschreven.
+
+> Eerst moest een hello world applicatie geschreven worden. Direct met GUI. Aangezien PROJUCER dit direct genereert was er weinig aan te vervolledigen. Daarna werd een helloWorldMidi geschreven. Doel van de test was om de GUI controls te gebruiken, en gewend te geraken, alsook leren omgaan met Midi Messages. Hier kwamen er al complexe problemen m.b.t. thread safety en het pompen van messages naar een GUI thread, zoals gezien was in C#.
+
+> Daarna werd een test gedraaid om te zien hoe nieuwe Midi Messages konden worden aangemaakt. De user input moest worden getransponeerd en toegevoegd aan het originele signaal. Ook deze test was met succes afgewerkt.
+
+> Sedert de afgelopen week is weinig vooruitgang gemaakt. Althans blijkt dit in eerste instantie zo. De waarheid is dat er een heuvel het project belemmert, waarover ik heen moet. Het neurale netwerk, of eerder de implementatie van het probleem binnen neurale netwerken. Hier zijn nog steeds bedenkingen over. Het is belangrijk om zich hier in deze stap niet te vergissen i.f.v. tijdsbesteding.
+
+#### Reflectie
+> De planning is realistisch ingeschat. De eerste taken waren veel rapper dan verwacht uitgevoerd. Dit zorgde voor een voorsprong in de planning. Echter trekt het AI-struikelblok dit voordeel terug weg. Na de herfstvakantie moet er een concrete visie op tafel gelegd worden, en dat kan nog al eens 'pikant' worden.
+
+> JUCE is een interessant framework. De keuze is goed gemaakt om hiermee aan de slag te gaan. Echter lijkt meer en meer de keuze om het met neuraal netwerk te werken een moeilijk en uitdagend onderwerp. Dit mag niet worden onderschat.
+
+> Als er geen concreet ontwerp op de tafel kan worden gelegd, of voldoende inzicht verworven word in een te gebruiken netwerk, dan spreken we van een probleem, en daar heeft de planning ook weinig rekening mee gehouden.
