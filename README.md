@@ -147,3 +147,13 @@ Tussentijdse rapportering #1
 > JUCE is een interessant framework. De keuze is goed gemaakt om hiermee aan de slag te gaan. Echter lijkt meer en meer de keuze om het met neuraal netwerk te werken een moeilijk en uitdagend onderwerp. Dit mag niet worden onderschat.
 
 > Als er geen concreet ontwerp op de tafel kan worden gelegd, of voldoende inzicht verworven word in een te gebruiken netwerk, dan spreken we van een probleem, en daar heeft de planning ook weinig rekening mee gehouden.
+
+#### Evaluatie
+| Topic    | Zelf-evaluatie       |
+| -------- | -------------------- |
+| **Nieuw verworven kennis** | C |
+| **Toepassing aangetoond** | C |
+| **Planning** | A |
+| **Analyse node** | B |
+| **Initiatief - inzet** | B |
+| **Rapportering** | C |
