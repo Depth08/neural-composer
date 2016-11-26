@@ -160,3 +160,9 @@ Tussentijdse rapportering #1
 | **Analyse node** | B |
 | **Initiatief - inzet** | B |
 | **Rapportering** | C |
+
+#### @joris.maervoet - <26/11/2016>
+> Rafaël,
+> Je tussenrapportering van 28/10 (aangevuld 2/11) is okee. De stand van zaken is duidelijk, je reflectie is min of meer okee en je scores van de zelfevaluatie kloppen. 
+> Je planning is zeer verzorgd en je logboek leest als proza maar dat hoeft niet; het mogen ook korte opsommingen zijn.
+> Ondertussen hebben we al 2 keer samengezeten/overlegd en is er al heel wat veranderd - vandaar dat het voorlopig niet veel zin meer heeft om nog inhoudelijke feedback te geven op je tussenrapportering (TBC ...).
