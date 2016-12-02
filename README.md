@@ -186,7 +186,7 @@ Tussentijdse rapportering #2
 
 > Er wordt nu stevig gewerkt aan een test-interface waarin ik rap een oscillator bouw met wat instellingen. Het trainen kan starten zodra midi verboden is aan deze oscillator.
 
-![Synaptic.js](img/oscillator.png)
+![showcase](img/oscillator.PNG)
 
 #### Evaluatie
 | Topic    | Zelf-evaluatie       |
