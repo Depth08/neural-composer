@@ -3,7 +3,7 @@
 */
 
 html {
-    font-family: 'Signika', sans-serif;
+    font-family: 'Exo 2', sans-serif;
     font-weight: 400;
     font-size: 62.5%;
 }
@@ -15,7 +15,7 @@ body {
     font-size: 1.4rem;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p, input {
     margin: 0;
 }
 

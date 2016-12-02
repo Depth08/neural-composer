@@ -8,9 +8,22 @@
 }
 
 .component-container {
+    float: left;
     box-sizing: border-box;
     border-radius: 5px;
     background-color: #3c3b3b;
+}
+
+.component-container label {
+    display: block;
+    background-color: #3686bb;
+    width: 5rem;
+    border-radius: 2rem;
+    text-align: center;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 .terminal {
@@ -27,9 +40,81 @@
     background-color: #e84a00;
 }
 
+.oscillator .screen {
+    display: block;
+    padding: 1rem;
+    background-color: #1f1d1d;
+    border-radius: 3px;
+}
+
+input[type=range].knob {
+    z-index: 2;
+    outline: none;
+    top: 0.5rem;
+    left: 0.5rem;
+    -webkit-appearance: none;
+    border-radius: 100%;
+    display: block;
+    height: 4rem;
+    width: 4rem;
+    background-color: rgba(0,0,0,0);
+    box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.7);
+}
+
+input[type=range].knob::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 3rem;
+    width: 1rem;
+}
+
+span.knob {
+    display: block;
+    border-radius: 100%;
+    height: 5rem;
+    width: 5rem;
+    background: linear-gradient(#312f2f, #4f4e4e);
+}
+
+.knob .cap {
+    top: 0.5rem;
+    right: 0.5rem;
+    display: block;
+    z-index: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    background: linear-gradient(#4f4e4e, #363434);
+}
+
+.knob .rotor {
+    top: 0.5rem;
+    right: 0.5rem;
+    display: block;
+    z-index: 1;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+}
+
+.knob .rotor .bullet {
+    top: 0.5rem;
+    left: 1.8rem;
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 100%;
+    background-color: #787171;
+}
+
 /* Columns */
 .col {
     margin: 1rem;
+}
+
+.col-1 {
+    width: calc(33% - 2rem);
 }
 
 .col-3 {

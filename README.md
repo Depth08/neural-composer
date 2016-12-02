@@ -166,3 +166,34 @@ Tussentijdse rapportering #1
 > Je tussenrapportering van 28/10 (aangevuld 2/11) is okee. De stand van zaken is duidelijk, je reflectie is min of meer okee en je scores van de zelfevaluatie kloppen. 
 > Je planning is zeer verzorgd en je logboek leest als proza maar dat hoeft niet; het mogen ook korte opsommingen zijn.
 > Ondertussen hebben we al 2 keer samengezeten/overlegd en is er al heel wat veranderd - vandaar dat het voorlopig niet veel zin meer heeft om nog inhoudelijke feedback te geven op je tussenrapportering (TBC ...).
+
+Tussentijdse rapportering #2
+---------------------------
+#### Stand van zaken
+> De afgelopen zijn qua vooruitgang een absolute ramp geweest. Dit wegens het samenvallen van de deadlines van andere vakken. Gelukkig is de theorie van Neurale Netwerken langzamerhand door de voegen van mijn hersenmassa aan het sijpelen. Het begint duidelijker te worden wat nodig is om tot een resultaat te komen.
+
+> Er is een serieus probleem met de opstelling. C++ JUCE, en OpenNN werken niet graag samen. Waarschijnlijk te wijten aan mijn tekort aan ervaring in C++ projectstructuren. C++ is een standaard, waarvan er een heleboel implementaties bestaan. Dit maakt het niet gemakkelijk. Zo was een hele tijd de term 'make-files' verward geraakt met 'Cmake'. Dit zijn compleet verschillende begrippen. Cmake hielp mij uiteindelijk om OpenNN te kunnen builden. Ondanks de slechte documentatie over het builden van de source van OpenNN, ben ik tot op heden niet zeker of het wel de juiste keuze was om het te builden met Cmake. Cmake maakte voor mij een projectstructuur voor Visual Studio 2015. Terwijl make-files eigenlijk enkel op Linux te bespreken zijn. Daar ik van plan was te werken met Ableton LIVE en VST3 om mijn applicatie te draaien, viel Linux buiten de kwestie.
+
+> Om dan JUCE, met zijn eigen projectstructuur gemaakt in PROJUCER, waar de eigenlijke instellingen verborgen blijven van de ontwikkelaar, te laten samen werken met OpenNN... Dit was een taak waarvan het gewicht niet meer op ging i.f.v. de tijd die mij nog restte. Er is dus een beslissing gekomen om te werken met Synaptic.js. Een JavaScript Library die mij toevallig voor de ogen kwam dansen op een goede zondagavond. Deze library biedt **meer mogelijkheden i.v.m. OpenNN!!!**. Een kleine test met Midi in de browser, en werken met oscillatoren hadden het idee aan mij verkocht. Dit zal het worden.
+
+> Omdat ik niet veel tijd meer heb, moet ik mij focussen op onderzoek. Ik wilde graag een aantal technieken onderzoeken, waaronder RNN met LSTM. Vergelijking met 88 input nodes tov glijdende schaal. Ook had ik nog een techniek met 8 input nodes, omdat men meestal de piano bespeelt met max 8 vingers. Hoewel ik stukken heb gespeeld met 6 vingers op 1 hand, maar ik wil het eerst simpel houden.
+
+#### Reflectie
+
+> We lopen heel serieus achter, dus de planning blijft wel geldig, maar de naleving ervan is pijnlijk. Met spijt in het hart moet ik het hoog gegrepen doel in de kast steken. Ik zal mij voortaan focussen op onderzoek. Deze keuze is op zich zeker niet slecht gezien de tijd me nog rest, en het begrip realisme.
+
+> Er is dankzij Synaptic.js veel nieuw verworven kennis. Backpropagation, activatie, structuur, training methods, ... 
+
+> Er wordt nu stevig gewerkt aan een test-interface waarin ik rap een oscillator bouw met wat instellingen. Het trainen kan starten zodra midi verboden is aan deze oscillator.
+
+![Synaptic.js](img/oscillator.png)
+
+#### Evaluatie
+| Topic    | Zelf-evaluatie       |
+| -------- | -------------------- |
+| **Nieuw verworven kennis** | B |
+| **Toepassing aangetoond** | C |
+| **Planning** | A |
+| **Analyse noden** | A |
+| **Initiatief - inzet** | B |
+| **Rapportering** | B |
