@@ -1,0 +1,177 @@
+/**
+    Fundamentals
+*/
+
+html {
+    font-family: 'Signika', sans-serif;
+    font-weight: 400;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #2f2c2c;
+    color: white;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+a {
+    color: #e84a00;
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+footer {
+    display: block;
+    min-height: 25rem;
+}
+
+*::selection {
+    background-color: #c6c5c9;
+}
+
+*::-moz-selection {
+    background-color: #c6c5c9;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,0.3);
+    -webkit-border-radius: 0.2rem;
+    border-radius: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e84a00;
+}
+
+/**
+    Classes
+*/
+
+/* Generals */
+.wrapper {
+    max-width: 96rem;
+    margin: 0 auto;
+}
+
+.clearfix {
+    overflow: auto;
+    zoom: 1;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.width-10 {
+    width: 10%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+/* Fixation */
+.right {
+    float: right;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.left {
+    float: left;
+}
+
+.top {
+    top: 0;
+}
+
+/* Spacers */
+.padded {
+    padding: 1rem;
+}
+
+.padding-2 {
+    padding: 2rem;
+}
+
+.padding-3-top {
+    padding-top: 3rem;
+}
+
+.min-height-5 {
+    min-height: 5rem;
+}
+
+.min-height-60 {
+    min-height: 60rem;
+}
+
+.margin-1-top {
+    margin-top: 1rem;
+}
+
+.margin-2-top {
+    margin-top: 2rem;
+}
+
+.margin-1-bottom {
+    margin-bottom: 1rem;
+}
+
+.margin-2-bottom {
+    margin-bottom: 2rem;
+}
+
+.margin-top-25 {
+    margin-top: 25rem;
+}
+
+/* Borders */
+.sep-top {
+    border: 0px;
+    border-top: 5px;
+    border-style: solid;
+}
+
+.menu-bar ul li {
+    display: inline-block;
+}
+
+/* Text */
+.text-centered {
+    text-align: center;
+}
+
+.text-light {
+    font-weight: 300;
+}
+
+.text-smaller {
+    font-size: 1.4rem;
+}

@@ -1,6 +1,6 @@
 JUCE/
-VST3 SDK/
 */Builds/
-tutorials/
-WEKA/
 OpenNN-master/
+*/.idea
+*/bower_components
+*/node_modules

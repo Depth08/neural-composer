@@ -1,0 +1,22 @@
+{
+  "name": "web-app",
+  "description": "Neural networks music composer",
+  "main": "app.html",
+  "authors": [
+    "Rafael Mindreau"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "synaptic": "^1.0.9"
+  }
+}

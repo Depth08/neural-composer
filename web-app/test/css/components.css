@@ -1,0 +1,37 @@
+/**
+    Components for Neural Networking app
+*/
+
+.app-container {
+    background-color: #1f1d1d;
+    border-radius: 10px;
+}
+
+.component-container {
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #3c3b3b;
+}
+
+.terminal {
+    height: 30rem;
+    font-family: "Courier New", serif;
+    overflow: auto;
+}
+
+.terminal > *::selection {
+    background-color: #e84a00;
+}
+
+.terminal > *::-moz-selection {
+    background-color: #e84a00;
+}
+
+/* Columns */
+.col {
+    margin: 1rem;
+}
+
+.col-3 {
+    width: calc(100% - 2rem);
+}

@@ -1,0 +1,12 @@
+{
+  "name": "web-app",
+  "version": "1.0.0",
+  "description": "Neural networks music composer",
+  "main": "app.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rafael Mindreau",
+  "license": "ISC",
+  "dependencies": {}
+}

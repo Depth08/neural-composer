@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2015
+Project("{D213C07A-7308-77EC-039E-21599F9E4BB9}") = "HelloWorldMidi", "HelloWorldMidi.vcxproj", "{14947511-9F1A-447D-0C96-52988EE07CF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14947511-9F1A-447D-0C96-52988EE07CF1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{14947511-9F1A-447D-0C96-52988EE07CF1}.Debug|Win32.Build.0 = Debug|Win32
+		{14947511-9F1A-447D-0C96-52988EE07CF1}.Release|Win32.ActiveCfg = Release|Win32
+		{14947511-9F1A-447D-0C96-52988EE07CF1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
