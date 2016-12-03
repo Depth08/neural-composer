@@ -19,14 +19,25 @@
         <h2>Testing interface</h2>
 
         <div class="oscillator component-container padded col col-1">
-            <span class="screen margin-1-bottom"><img class="width-100" src="img/sine.svg"/></span>
+            <span class="screen margin-1-bottom"><img class="width-100" src="img/saw.svg"/></span>
             <form id="oscillatorOneSettings">
-                <label class="margin-1-bottom" for="oscOneType">Type</label>
-                <span class="knob relative">
-                    <input class="knob absolute" id="oscOneType" name="type" type="range" min="0" max="100" value="0">
-                    <span class="rotor absolute"><span class="bullet"></span></span>
-                    <span class="cap absolute"></span>
-                </span>
+                <fieldset class="left">
+                    <label class="margin-1-bottom blue" for="oscType">Type</label>
+                    <span class="knob relative">
+                        <input class="knob absolute" id="oscType" name="type" type="range" min="0" max="100" value="0">
+                        <span class="rotor absolute"><span class="bullet"></span></span>
+                        <span class="cap absolute"></span>
+                    </span>
+                </fieldset>
+
+                <fieldset class="left">
+                    <label class="margin-1-bottom red" for="oscDetune">Tune</label>
+                    <span class="knob relative">
+                        <input class="knob absolute" id="oscDetune" name="type" type="range" min="0" max="100" value="0">
+                        <span class="rotor absolute"><span class="bullet"></span></span>
+                        <span class="cap absolute"></span>
+                    </span>
+                </fieldset>
             </form>
         </div>
 

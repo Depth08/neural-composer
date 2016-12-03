@@ -6,33 +6,42 @@
 
 var NeuralComposer = {
     init: function() {
-        // Set UI init
-        $('input').val(0);
-
         // Set Terminal to work
         NeuralComposer.$console = $('#console');
 
-        // Set neural network
-        NeuralComposer.network = null;
-
-        // Set Audio
-        NeuralComposer.audioContext = new AudioContext();
-        NeuralComposer.oscillators.oscOne = NeuralComposer.audioContext.createOscillator();
+        // Audio init
         NeuralComposer.mixer.gain = NeuralComposer.audioContext.createGain();
-        NeuralComposer.mixer.panning = NeuralComposer.audioContext.createPanner();
+        NeuralComposer.mixer.gain.connect(NeuralComposer.audioContext.destination);
 
-        NeuralComposer.oscillators.oscOne.type = 'sine';
+        NeuralComposer.mixer.gain.gain.value = 0.1;
 
-        NeuralComposer.oscillators.oscOne.connect(NeuralComposer.audioContext.destination);
-
-        //NeuralComposer.oscillators.oscOne.start();
-
-        if (navigator.requestMIDIAccess) {
+        // Midi
+        navigator.requestMIDIAccess().then(midi => {
+            NeuralComposer.midi = midi;
             NeuralComposer.log('Browser supports MIDI!');
+
+            NeuralComposer.initMidi();
+        }, () => NeuralComposer.log('Could not initialize MIDI!'));
+    },
+
+    /**
+     * MIDI
+     */
+
+    midi: null,
+
+    initMidi: function() {
+        var inputs = NeuralComposer.midi.inputs.values();
+
+        for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
+            input.value.onmidimessage = NeuralComposer.onMidiMessage;
         }
-        else {
-            NeuralComposer.log('Browser does not support MIDI! Use Google Chrome 38+');
-        }
+    },
+
+    onMidiMessage: function(msg) {
+        // { msg.data[2] > 0 } Some devices don't send stop-notes, but 0-velocity instead
+        if (msg.data[0] === 144 && msg.data[2] > 0) NeuralComposer.playNote(msg.data[1]);
+        if (msg.data[0] === 128 || msg.data[2] === 0) NeuralComposer.stopNote(msg.data[1]);
     },
 
     log: function(txt) {
@@ -42,8 +51,30 @@ var NeuralComposer = {
         }
     },
 
+    playNote: function(note) {
+        NeuralComposer.oscillators[note] = NeuralComposer.audioContext.createOscillator();
+        NeuralComposer.oscillators[note].type = NeuralComposer.oscillatorType;
+        NeuralComposer.oscillators[note].frequency.value = NeuralComposer.convertMidiToFrequency(note);
+        NeuralComposer.oscillators[note].connect(NeuralComposer.mixer.gain);
+        NeuralComposer.oscillators[note].start();
+    },
+
+    stopNote: function(note) {
+        NeuralComposer.oscillators[note].stop();
+        NeuralComposer.oscillators[note].disconnect();
+    },
+
+    /**
+     * App specific parameters
+     */
+
     logParameterChanges: true,
     logEvents: true,
+
+
+    /** App component behaviours
+     *
+     */
 
     makeKnob: function(component, task) {
         component.mousedown(function() {
@@ -68,34 +99,46 @@ var NeuralComposer = {
         event: null
     },
 
-    audioContext: null,
 
-    oscillators: {
-        oscOne: null,
-        oscTwo: null
+    /**
+     * WEB Audio
+     */
+
+    audioContext: new AudioContext(),
+
+    convertMidiToFrequency: function(note) {
+        return Math.pow(2, ((note - 69) / 12)) * NeuralComposer.oscillatorTune;
     },
+
+    oscillatorType: 'sawtooth',
+    oscillatorTune: 440,
+
+    oscillators: {},
 
     mixer: {
-        gain: null,
-        panning: null
+        gain: null
     },
 
-    controlOscOneType: function(value) {
+    changeOscTuning: function(value) {
+        NeuralComposer.oscillatorTune = 440 + ((value - 50) / 2);
+    },
+
+    changeOscillatorType: function(value) {
         if (value < 25) {
             // Set Sine wave
-            NeuralComposer.oscillators.oscOne.type = 'sine';
+            NeuralComposer.oscillatorType = 'sine';
             $('.oscillator .screen img').attr('src','img/sine.svg');
         }
         else if (value < 50) {
-            NeuralComposer.oscillators.oscOne.type = 'triangle';
+            NeuralComposer.oscillatorType = 'triangle';
             $('.oscillator .screen img').attr('src','img/triangle.svg');
         }
         else if (value < 75) {
-            NeuralComposer.oscillators.oscOne.type = 'sawtooth';
+            NeuralComposer.oscillatorType = 'sawtooth';
             $('.oscillator .screen img').attr('src','img/saw.svg');
         }
         else {
-            NeuralComposer.oscillators.oscOne.type = 'square';
+            NeuralComposer.oscillatorType = 'square';
             $('.oscillator .screen img').attr('src','img/square.svg');
         }
     }
@@ -107,7 +150,8 @@ $(document).ready(function() {
     /* Setup */
     NeuralComposer.init();
 
-    NeuralComposer.makeKnob($('#oscOneType'), NeuralComposer.controlOscOneType);
+    NeuralComposer.makeKnob($('#oscType'), NeuralComposer.changeOscillatorType);
+    NeuralComposer.makeKnob($('#oscDetune'), NeuralComposer.changeOscTuning);
 
 /*
     NeuralComposer.log('Starting Synaptic.js...');
