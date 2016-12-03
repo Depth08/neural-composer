@@ -170,7 +170,7 @@ Tussentijdse rapportering #1
 Tussentijdse rapportering #2
 ---------------------------
 #### Stand van zaken
-> De afgelopen zijn qua vooruitgang een absolute ramp geweest. Dit wegens het samenvallen van de deadlines van andere vakken. Gelukkig is de theorie van Neurale Netwerken langzamerhand door de voegen van mijn hersenmassa aan het sijpelen. Het begint duidelijker te worden wat nodig is om tot een resultaat te komen.
+> De afgelopen weken zijn qua vooruitgang een absolute ramp geweest. Dit wegens het samenvallen van de deadlines van andere vakken. Gelukkig is de theorie van Neurale Netwerken langzamerhand door de voegen van mijn hersenmassa aan het sijpelen. Het begint duidelijker te worden wat nodig is om tot een resultaat te komen.
 
 > Er is een serieus probleem met de opstelling. C++ JUCE, en OpenNN werken niet graag samen. Waarschijnlijk te wijten aan mijn tekort aan ervaring in C++ projectstructuren. C++ is een standaard, waarvan er een heleboel implementaties bestaan. Dit maakt het niet gemakkelijk. Zo was een hele tijd de term 'make-files' verward geraakt met 'Cmake'. Dit zijn compleet verschillende begrippen. Cmake hielp mij uiteindelijk om OpenNN te kunnen builden. Ondanks de slechte documentatie over het builden van de source van OpenNN, ben ik tot op heden niet zeker of het wel de juiste keuze was om het te builden met Cmake. Cmake maakte voor mij een projectstructuur voor Visual Studio 2015. Terwijl make-files eigenlijk enkel op Linux te bespreken zijn. Daar ik van plan was te werken met Ableton LIVE en VST3 om mijn applicatie te draaien, viel Linux buiten de kwestie.
 
@@ -180,7 +180,7 @@ Tussentijdse rapportering #2
 
 #### Reflectie
 
-> We lopen heel serieus achter, dus de planning blijft wel geldig, maar de naleving ervan is pijnlijk. Met spijt in het hart moet ik het hoog gegrepen doel in de kast steken. Ik zal mij voortaan focussen op onderzoek. Deze keuze is op zich zeker niet slecht gezien de tijd me nog rest, en het begrip realisme.
+> We lopen heel serieus achter, dus de planning blijft wel geldig, maar de naleving ervan is pijnlijk. Met spijt in het hart moet ik het hoog gegrepen doel in de kast steken. Ik zal mij voortaan focussen op onderzoek. Deze keuze is op zich zeker niet slecht gezien de tijd me nog rest, en het begrip voor realisme.
 
 > Er is dankzij Synaptic.js veel nieuw verworven kennis. Backpropagation, activatie, structuur, training methods, ... 
 
