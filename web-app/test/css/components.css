@@ -16,7 +16,6 @@
 
 .component-container label {
     display: block;
-    width: 5rem;
     border-radius: 2rem;
     text-align: center;
     padding: 0.5rem;
@@ -37,8 +36,12 @@
     background-color: #e54836;
 }
 
+.component-container label.orange {
+    background-color: #e84a00;
+}
+
 .terminal {
-    height: 30rem;
+    height: 15rem;
     font-family: "Courier New", serif;
     overflow: auto;
 }
@@ -64,6 +67,14 @@ fieldset {
     background-color: #565455;
 }
 
+select {
+    color: white;
+    padding: 0.5rem;
+    border: 0;
+    background-color: #2f2c2c;
+    outline: none;
+}
+
 input[type=range].knob {
     z-index: 2;
     outline: none;
@@ -82,6 +93,14 @@ input[type=range].knob::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 3rem;
     width: 1rem;
+}
+
+input[type=text] {
+    color: white;
+    padding: 0.5rem;
+    border: 0;
+    background-color: #2f2c2c;
+    outline: none;
 }
 
 span.knob {
@@ -123,6 +142,60 @@ span.knob {
     height: 0.5rem;
     border-radius: 100%;
     background-color: #787171;
+}
+
+.btn {
+    outline: none;
+    color: white;
+}
+
+.btn.taster {
+    box-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    font-weight: 700;
+    border-radius: 5px;
+    width: 5rem;
+    height: 5rem;
+    background: linear-gradient(#777576, #666465);
+}
+
+.btn.taster:active {
+    color: #dddddd;
+    background: none;
+    background-color: #666465;
+}
+
+.btn.normal {
+    border: none;
+    padding: 0.5rem;
+    border-radius: 3px;
+}
+
+.btn.red {
+    border: 2px solid #e54836;
+}
+
+.btn.blue {
+    border: 2px solid #3686bb;
+}
+
+.btn.green {
+    border: 2px solid #1fbb70;
+}
+
+.btn.yellow {
+    border: 2px solid #e5c14a;
+}
+
+.led {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background-color: #222121;
+    border-radius: 100%;
+}
+
+.led.orange.active {
+    background-color: #e84a00;
 }
 
 /* Columns */

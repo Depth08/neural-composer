@@ -38,7 +38,41 @@
                         <span class="cap absolute"></span>
                     </span>
                 </fieldset>
+
+                <fieldset class="left">
+                    <label class="margin-1-bottom yellow" for="oscGain">Gain</label>
+                    <span class="knob relative">
+                        <input class="knob absolute" id="oscGain" name="type" type="range" min="0" max="100" value="0">
+                        <span class="rotor absolute"><span class="bullet"></span></span>
+                        <span class="cap absolute"></span>
+                    </span>
+                </fieldset>
             </form>
+        </div>
+
+        <div class="component-container padded col col-1">
+            <form id="trainerSettings">
+                <fieldset class="margin-1-bottom">
+                    <label class="margin-1-bottom blue" for="dataModel">Training Model</label>
+                    <select class="width-100" id="dataModel">
+                        <option>Primitive Octave</option>
+                        <option>88-key polyphony</option>
+                        <option>Optimized 8-fingered</option>
+                    </select>
+                </fieldset>
+                <fieldset class="margin-1-bottom">
+                    <button class="btn taster green">Start</button>
+                    <button class="btn taster blue">Take</button>
+                    <button class="btn taster yellow">Save</button>
+                    <button class="btn taster red">Stop</button>
+                    <span class="led orange right"></span>
+                </fieldset>
+                <fieldset>
+                    <input type="text" placeholder="&quot;trainingData.txt&quot;">
+                    <button class="btn normal" style="background-color: #1fbb70">Save</button>
+                </fieldset>
+            </form>
+
         </div>
 
         <div id="console" class="terminal component-container padded col col-3">

@@ -13,7 +13,7 @@ var NeuralComposer = {
         NeuralComposer.mixer.gain = NeuralComposer.audioContext.createGain();
         NeuralComposer.mixer.gain.connect(NeuralComposer.audioContext.destination);
 
-        NeuralComposer.mixer.gain.gain.value = 0.1;
+        NeuralComposer.mixer.gain.gain.value = 0.5;
 
         // Midi
         navigator.requestMIDIAccess().then(midi => {
@@ -68,7 +68,7 @@ var NeuralComposer = {
      * App specific parameters
      */
 
-    logParameterChanges: true,
+    logParameterChanges: false,
     logEvents: true,
 
 
@@ -123,6 +123,10 @@ var NeuralComposer = {
         NeuralComposer.oscillatorTune = 440 + ((value - 50) / 2);
     },
 
+    changeGain: function(value) {
+        NeuralComposer.mixer.gain.gain.value = value / 100;
+    },
+
     changeOscillatorType: function(value) {
         if (value < 25) {
             // Set Sine wave
@@ -152,6 +156,7 @@ $(document).ready(function() {
 
     NeuralComposer.makeKnob($('#oscType'), NeuralComposer.changeOscillatorType);
     NeuralComposer.makeKnob($('#oscDetune'), NeuralComposer.changeOscTuning);
+    NeuralComposer.makeKnob($('#oscGain'), NeuralComposer.changeGain);
 
 /*
     NeuralComposer.log('Starting Synaptic.js...');
