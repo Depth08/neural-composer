@@ -156,6 +156,11 @@ span.knob {
     width: 5rem;
     height: 5rem;
     background: linear-gradient(#777576, #666465);
+    transition: border, 0.3s, ease-in-out;
+}
+
+.btn.taster:disabled {
+    border-color: #313030;
 }
 
 .btn.taster:active {
