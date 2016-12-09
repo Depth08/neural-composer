@@ -25,6 +25,31 @@ var NeuralComposer = {
     },
 
     /**
+     * AJAX
+     */
+
+    saveFile: function(data) {
+        var fileName = $('#textFieldSaveFilename').val();
+        
+        $.ajax({
+            url: 'api/files.php',
+            type: 'post',
+            data: { 'data': data, 'name': fileName},
+            success: function (data, textStatus, jqXHR) {
+                NeuralComposer.log(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+            },
+            statusCode: {
+                404: function () {
+                    console.log('404');
+                }
+            }
+        });
+    },
+
+    /**
      * MIDI
      */
 
@@ -143,7 +168,7 @@ var NeuralComposer = {
                     return false;
                 }
 
-                NeuralComposer.log('Input note: ' + note);
+                NeuralComposer.log('Input note: ' + note + '. Entries in data set: ' + NeuralComposer.trainingData.length);
                 NeuralComposer.trainingDataModels[0].logger.logInput(note);
 
                 NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].outputNote;
@@ -155,7 +180,8 @@ var NeuralComposer = {
                     return false;
                 }
 
-                NeuralComposer.log('Output note: ' + note);
+                NeuralComposer.log('Output note: ' + note + '. Entries in data set: ' + NeuralComposer.trainingData.length);
+                
                 NeuralComposer.trainingDataModels[0].logger.logOutput(note);
 
                 NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].inputNote;
@@ -310,6 +336,10 @@ $(document).ready(function() {
     // Init Training Data Module
     $('#btnTrainingDataStart').on('click', NeuralComposer.startTrainingData);
     $('#btnTrainingDataStop').on('click', NeuralComposer.stopTrainingData);
+    $('#btnSaveTrainingData').on('click', (e) => {
+        e.preventDefault();
+        NeuralComposer.saveFile(NeuralComposer.trainingData)
+    });
 
 /*
     NeuralComposer.log('Starting Synaptic.js...');

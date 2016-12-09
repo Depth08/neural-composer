@@ -53,7 +53,7 @@
         <div class="component-container padded col col-1">
             <form id="trainerDataSettings">
                 <fieldset class="margin-1-bottom">
-                    <label class="margin-1-bottom blue" for="dataModel">Training Model</label>
+                    <label class="margin-1-bottom blue" for="dataModel">Training Data Collector</label>
                     <select class="width-100" id="dataModel">
                         <option data-model-id="0">Primitive Octave</option>
                         <option data-model-id="1">88-key polyphony</option>
@@ -68,11 +68,25 @@
                     <span id="midiInputLedForTrainingData" class="led orange right"></span>
                 </fieldset>
                 <fieldset>
-                    <input type="text" placeholder="&quot;trainingData.txt&quot;">
-                    <button class="btn normal" style="background-color: #1fbb70">Save</button>
+                    <input id="textFieldSaveFilename" type="text" placeholder="&quot;trainingData.txt&quot;">
+                    <button id="btnSaveTrainingData" class="btn normal" style="background-color: #1fbb70">Save</button>
                 </fieldset>
             </form>
 
+        </div>
+
+        <div class="component-container padded col col-1">
+            <form id="trainerSettings">
+                <fieldset class="margin-1-bottom">
+                    <label class="margin-1-bottom orange" for="trainerSettings">Network Trainer</label>
+                    <input id="openTrainingDataFile" type="file" placeholder="&quot;trainingData.txt&quot;">
+                    <label for="openTrainingDataFile" class="green">Load File</label>
+                </fieldset>
+
+                <fieldset>
+
+                </fieldset>
+            </form>
         </div>
 
         <div id="console" class="terminal component-container padded col col-3">
