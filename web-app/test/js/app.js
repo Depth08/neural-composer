@@ -85,59 +85,80 @@ var NeuralComposer = {
      * Training-data assembler
      */
 
-    trainingData: {},
+    trainingData: [{}],
     trainingDataModel: null,
 
     trainingDataModels: {
         0: {
             baseNote: -1,
 
-            setBaseNote: function(note) {
-                NeuralComposer.log('Base-note selected: ' + note + '. Press take to set this as the base note for the training set.');
-
-                // Forget previous events
-                var btnTake = $('#btnTrainingDataTake').unbind();
-
-                NeuralComposer.trainingDataModels[0].baseNote = note;
-
-                // Set the task for TAKE
-                btnTake.on('click', function(e) {
-                    e.preventDefault();
-
-                    NeuralComposer.log('Base note is: ' + note + '. Now you can play within the range of ' + note + ' and ' + (note+12) + '. Now select input note');
-
-                    NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].collectNote;
-                    $(this).attr('disabled', true);
-                });
-
-                btnTake.attr('disabled', false);
-            },
-
-            collectNote: function(note) {
-                // Not within range
-                if (note > NeuralComposer.trainingDataModels[0].baseNote && note < NeuralComposer.trainingDataModels[0].baseNote + 12) {
-                    NeuralComposer.log('collected note: ' + note);
+            isNoteWithinRange: function(note) {
+                if (note >= NeuralComposer.trainingDataModels[0].baseNote && note < NeuralComposer.trainingDataModels[0].baseNote + 12) {
+                    return true;
                 }
-                else{
+                else {
                     NeuralComposer.log('The note: ' + note + ' is not within expected range!');
                     return false;
                 }
+            },
 
-                // Forget previous events
-                var btnTake = $('#btnTrainingDataTake').unbind();
+            setBaseNote: function(note) {
+                NeuralComposer.log('Base-note selected: ' + note);
 
-                // This is regarded the base note
                 NeuralComposer.trainingDataModels[0].baseNote = note;
 
-                // Set the task for TAKE
-                btnTake.on('click', function(e) {
-                    e.preventDefault();
+                NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].inputNote;
+            },
 
-                    NeuralComposer.log('Note: ' + note + ' logged. Play the answer note. This note must be within the next 12 semi-tones!');
-                    $(this).attr('disabled', true);
-                });
+            logger: {
+                formatData: function(note) {
+                    var result = [0,0,0,0,0,0,0,0,0,0,0,0];
 
-                btnTake.attr('disabled', false);
+                    var bn = NeuralComposer.trainingDataModels[0].baseNote;
+
+                    result[note - bn] = 1;
+
+                    return result;
+                },
+
+                logInput: function(note) {
+                    NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].input = NeuralComposer.trainingDataModels[0].logger.formatData(note);
+
+                    console.log(NeuralComposer.trainingData);
+                },
+
+                logOutput: function(note) {
+                    NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].output = NeuralComposer.trainingDataModels[0].logger.formatData(note);
+
+                    // Allow saving if not already allowed
+                    $('#btnTrainingDataSave').attr('disabled', false);
+
+                    console.log(NeuralComposer.trainingData);
+                }
+            },
+
+            inputNote: function(note) {
+                // Not within range
+                if (!NeuralComposer.trainingDataModels[0].isNoteWithinRange(note)) {
+                    return false;
+                }
+
+                NeuralComposer.log('Input note: ' + note);
+                NeuralComposer.trainingDataModels[0].logger.logInput(note);
+
+                NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].outputNote;
+            },
+
+            outputNote: function(note) {
+                // Not within range
+                if (!NeuralComposer.trainingDataModels[0].isNoteWithinRange(note)) {
+                    return false;
+                }
+
+                NeuralComposer.log('Output note: ' + note);
+                NeuralComposer.trainingDataModels[0].logger.logOutput(note);
+
+                NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].inputNote;
             },
 
             default: (note) => NeuralComposer.trainingDataModels[0].setBaseNote(note)
@@ -155,6 +176,34 @@ var NeuralComposer = {
 
         NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[NeuralComposer.trainingDataModel.data('model-id')].default;
 
+        // Save button functions
+        $('#btnTrainingDataSave').on('click', function(e) {
+            e.preventDefault();
+
+            // Save previous by editing a new entry in logger
+            NeuralComposer.trainingData.push({});
+
+            if (NeuralComposer.trainingData.length > 1) $('#btnTrainingDataUndo').attr('disabled', false);
+
+            // Save button mustn't work on new incomplete entry
+            $('#btnTrainingDataSave').attr('disabled', true);
+        });
+
+        // Undo button functions
+        $('#btnTrainingDataUndo').on('click', function(e) {
+            e.preventDefault();
+
+            // Save previous by editing a new entry in logger
+            NeuralComposer.trainingData.pop();
+
+            if (NeuralComposer.trainingData.length === 0) {
+                $('#btnTrainingDataUndo').attr('disabled', true);
+                $('#btnTrainingDataSave').attr('disabled', true);
+
+                NeuralComposer.trainingData = [{}];
+            }
+        });
+
         NeuralComposer.log('Listening for training data. Start to play the first note');
     },
 
@@ -165,6 +214,7 @@ var NeuralComposer = {
 
         // Disable Start button, enable stop button
         $('#btnTrainingDataTake').unbind();
+        $('#btnTrainingDataSave').attr('disabled', true);
         $('#trainerDataSettings').find('.btn.taster').attr('disabled', true);
         $('#btnTrainingDataStart').attr('disabled', false);
 
@@ -257,7 +307,7 @@ $(document).ready(function() {
     NeuralComposer.makeKnob($('#oscDetune'), NeuralComposer.changeOscTuning);
     NeuralComposer.makeKnob($('#oscGain'), NeuralComposer.changeGain);
 
-    // Init Data Assembler Module
+    // Init Training Data Module
     $('#btnTrainingDataStart').on('click', NeuralComposer.startTrainingData);
     $('#btnTrainingDataStop').on('click', NeuralComposer.stopTrainingData);
 
