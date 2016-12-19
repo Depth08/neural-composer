@@ -20,8 +20,8 @@
 </head>
 <body>
 
-    <section class="wrapper padded app-container margin-top-25 clearfix">
-        <h2>Testing interface</h2>
+    <section class="wrapper padded app-container margin-5-top clearfix">
+        <h2>Neural Composer</h2>
 
         <div class="oscillator component-container padded col col-1">
             <span class="screen margin-1-bottom"><img class="width-100" src="img/saw.svg"/></span>
@@ -90,6 +90,15 @@
 
                 <fieldset>
 
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="component-container padded col col-2">
+            <form id="neuralSettings">
+                <fieldset class="margin-1-bottom">
+                    <label class="margin-1-bottom yellow" for="trainerSettings">Neural Network Settings</label>
+                    <button id="btnStartTraining" class="btn taster red">Train</button>
                 </fieldset>
             </form>
         </div>

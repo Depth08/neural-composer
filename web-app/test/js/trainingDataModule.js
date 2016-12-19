@@ -4,86 +4,108 @@
 /**
  * Training-data assembler
  */
-NeuralComposer.trainingData = [{}],
-    NeuralComposer.trainingDataModel = null;
+NeuralComposer.trainingData = [{}];
+NeuralComposer.trainingDataModel = null;
 
-    NeuralComposer.trainingDataModels = {
-        0: {
-            baseNote: -1,
+NeuralComposer.checkIfDataValid = function(trainingData) {
+    try {
+        parsedData = JSON.parse(trainingData);
 
-            isNoteWithinRange: function(note) {
-                if (note >= NeuralComposer.trainingDataModels[0].baseNote && note < NeuralComposer.trainingDataModels[0].baseNote + 12) {
-                    return true;
-                }
-                else {
-                    NeuralComposer.log('The note: ' + note + ' is not within expected range!');
-                    return false;
-                }
+        console.log(parsedData);
+
+        parsedData.forEach(function(entry, i) {
+            // An entry contains ONLY inputs and outputs, nothing in between is allowed!
+            var keys = Object.keys(entry);
+            if (!(keys.length <= 2 && keys.includes('input') && keys.includes('output'))) throw new Error('Data contains more properties, or does not have { inputs: & outputs: } at entry: ' + (i+1));
+
+            // Check length conformity
+            if (entry.input.length !== entry.output.length) throw new Error('Data length mismatch -> input vs output at entry '+ (i+1));
+        });
+
+        return true;
+    }
+    catch (err) {
+        NeuralComposer.log('File loading interrupted: ' + err.message);
+    }
+};
+
+NeuralComposer.trainingDataModels = {
+    0: {
+        baseNote: -1,
+
+        isNoteWithinRange: function(note) {
+            if (note >= NeuralComposer.trainingDataModels[0].baseNote && note < NeuralComposer.trainingDataModels[0].baseNote + 12) {
+                return true;
+            }
+            else {
+                NeuralComposer.log('The note: ' + note + ' is not within expected range!');
+                return false;
+            }
+        },
+
+        setBaseNote: function(note) {
+            NeuralComposer.log('Base-note selected: ' + note);
+
+            NeuralComposer.trainingDataModels[0].baseNote = note;
+
+            NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].inputNote;
+        },
+
+        logger: {
+            formatData: function(note) {
+                var result = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+                var bn = NeuralComposer.trainingDataModels[0].baseNote;
+
+                result[note - bn] = 1;
+
+                return result;
             },
 
-            setBaseNote: function(note) {
-                NeuralComposer.log('Base-note selected: ' + note);
+            logInput: function(note) {
+                NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].input = NeuralComposer.trainingDataModels[0].logger.formatData(note);
 
-                NeuralComposer.trainingDataModels[0].baseNote = note;
-
-                NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].inputNote;
+                console.log(NeuralComposer.trainingData);
             },
 
-            logger: {
-                formatData: function(note) {
-                    var result = [0,0,0,0,0,0,0,0,0,0,0,0];
+            logOutput: function(note) {
+                NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].output = NeuralComposer.trainingDataModels[0].logger.formatData(note);
 
-                    var bn = NeuralComposer.trainingDataModels[0].baseNote;
+                // Allow saving if not already allowed
+                $('#btnTrainingDataSave').attr('disabled', false);
 
-                    result[note - bn] = 1;
+                console.log(NeuralComposer.trainingData);
+            }
+        },
 
-                    return result;
-                },
+        inputNote: function(note) {
+            // Not within range
+            if (!NeuralComposer.trainingDataModels[0].isNoteWithinRange(note)) {
+                return false;
+            }
 
-                logInput: function(note) {
-                    NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].input = NeuralComposer.trainingDataModels[0].logger.formatData(note);
+            NeuralComposer.log('Input note: ' + note + '. Entries in data set: ' + NeuralComposer.trainingData.length);
+            NeuralComposer.trainingDataModels[0].logger.logInput(note);
 
-                    console.log(NeuralComposer.trainingData);
-                },
+            NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].outputNote;
+        },
 
-                logOutput: function(note) {
-                    NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].output = NeuralComposer.trainingDataModels[0].logger.formatData(note);
+        outputNote: function(note) {
+            // Not within range
+            if (!NeuralComposer.trainingDataModels[0].isNoteWithinRange(note)) {
+                return false;
+            }
 
-                    // Allow saving if not already allowed
-                    $('#btnTrainingDataSave').attr('disabled', false);
+            NeuralComposer.log('Output note: ' + note + '. Entries in data set: ' + NeuralComposer.trainingData.length);
 
-                    console.log(NeuralComposer.trainingData);
-                }
-            },
+            NeuralComposer.trainingDataModels[0].logger.logOutput(note);
 
-            inputNote: function(note) {
-                // Not within range
-                if (!NeuralComposer.trainingDataModels[0].isNoteWithinRange(note)) {
-                    return false;
-                }
+            NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].inputNote;
+        },
 
-                NeuralComposer.log('Input note: ' + note + '. Entries in data set: ' + NeuralComposer.trainingData.length);
-                NeuralComposer.trainingDataModels[0].logger.logInput(note);
-
-                NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].outputNote;
-            },
-
-            outputNote: function(note) {
-                // Not within range
-                if (!NeuralComposer.trainingDataModels[0].isNoteWithinRange(note)) {
-                    return false;
-                }
-
-                NeuralComposer.log('Output note: ' + note + '. Entries in data set: ' + NeuralComposer.trainingData.length);
-
-                NeuralComposer.trainingDataModels[0].logger.logOutput(note);
-
-                NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].inputNote;
-            },
-
-            default: (note) => NeuralComposer.trainingDataModels[0].setBaseNote(note)
-        }
-    };
+        default: (note) => NeuralComposer.trainingDataModels[0].setBaseNote(note)
+    }
+};
 
 NeuralComposer.startTrainingData = function(e) {
     e.preventDefault();

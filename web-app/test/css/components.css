@@ -12,6 +12,7 @@
     box-sizing: border-box;
     border-radius: 5px;
     background-color: #3c3b3b;
+    height: 25rem;
 }
 
 .component-container label {
@@ -29,7 +30,7 @@
 }
 
 .component-container label.yellow {
-    background-color: #e5c14a;
+    background-color: #e5b92f;
 }
 
 .component-container label.red {
@@ -228,6 +229,10 @@ label.green {
 
 .col-1 {
     width: calc(33% - 2rem);
+}
+
+.col-2 {
+    width: calc(66% - 2rem);
 }
 
 .col-3 {

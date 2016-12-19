@@ -57,18 +57,42 @@ $(document).ready(function() {
 
     // Init Trainer Module
     $('#openTrainingDataFile').change(function() {
-        console.log($(this).val());
+        NeuralComposer.loadFile($('#openTrainingDataFile').val());
+    });
+
+    // Quick train
+    $('#btnStartTraining').on('click', function(e) {
+        e.preventDefault();
+
+        if (NeuralComposer.trainingData.length < 2) {
+            return NeuralComposer.log('Cannot train, no training data!');
+        }
+
+        NeuralComposer.log('Starting Synaptic.js...');
+        NeuralComposer.log('Creating MLP {12-24-24-12}...');
+
+        var network = new synaptic.Architect.Perceptron(12,24,24,12);
+
+        NeuralComposer.log('Creating trainer for Network...');
+        var trainer = new synaptic.Trainer(network);
+
+        NeuralComposer.log('Starting training...');
+        trainer.trainAsync(NeuralComposer.trainingData,{
+            rate: 0.01,
+            iterations: 50000,
+            error: 0.05,
+            shuffle: true,
+            schedule: {
+                every: 5,
+                do: function(data) {
+                    NeuralComposer.log('Current Error: ' + data.error);
+                }
+            },
+            cost: synaptic.Trainer.cost.CROSS_ENTROPY()
+        }).then(results => console.log('done', results));
     });
 
 /*
-    NeuralComposer.log('Starting Synaptic.js...');
-    NeuralComposer.log('Creating MLP {12-24-24-12}...');
-
-    var network = new synaptic.Architect.Perceptron(12,24,24,12);
-
-    NeuralComposer.log('Creating trainer for Network...');
-    var trainer = new synaptic.Trainer(network);
-
     NeuralComposer.log('Generating training set for Trainer...');
     var trainingSet = [
         {

@@ -27,15 +27,17 @@ NeuralComposer.saveFile = function(data) {
     });
 };
 
-NeuralComposer.loadFile = function(fileName) {
-    console.log('hallo');
+NeuralComposer.loadFile = function(path) {
+    var truncated = (path.split('\\'));
+    var fileName = truncated[truncated.length - 1];
 
     $.ajax({
         url: 'api/files.php',
         type: 'get',
-        data: { 'load': fileName  },
+        data: { 'load': fileName },
         success: function(data, textStatus, jqXHR) {
-            console.log(data);
+            if (NeuralComposer.checkIfDataValid(data)) NeuralComposer.trainingData = JSON.parse(data);
+            NeuralComposer.log('Data successfully loaded!');
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(errorThrown);
