@@ -199,3 +199,9 @@ Tussentijdse rapportering #2
 | **Analyse noden** | A |
 | **Initiatief - inzet** | B |
 | **Rapportering** | B |
+
+#### @joris.maervoet - <20/12/2016>
+> Rafaël, je tussenrapportering van 2/12 is duidelijk. Ik zie dat je ondertussen min of meer de schakel hebt rondgemaakt. Zoals ik al zei, heb je met erg veel nieuwe concepten en technologieën kennisgemaakt in dit project, ze op een nuttige manier toegepast en heb je erg veel bijgeleerd. In deze zin is je project absoluut geslaagd.
+>
+> Indien je heel wat problemen ondervindt met de "8-fingered optimized methode", rapporteer ze dan gewoon en/of rapporteer een test en stop dan gerust met implementeren en testen. Voorzie voldoende tijd voor het samenstellen van je portfolio.
+
