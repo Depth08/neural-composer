@@ -43,4 +43,8 @@ NeuralComposer.stopNote = function(note) {
 
         NeuralComposer.trainingDataAction(note);
     }
+
+    if (NeuralComposer.listenForNotes === true) {
+        NeuralComposer.networkAction(note);
+    }
 };

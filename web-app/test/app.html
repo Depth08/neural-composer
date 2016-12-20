@@ -18,6 +18,7 @@
     <script src="js/audio.js"></script>
     <script src="js/components.js"></script>
     <script src="js/trainer.js"></script>
+    <script src="js/network.js"></script>
 </head>
 <body>
 
@@ -61,9 +62,9 @@
                 <fieldset class="margin-1-bottom">
                     <label class="margin-1-bottom blue" for="dataModel">Training Data Collector</label>
                     <select class="width-100" id="dataModel">
-                        <option data-model-id="0">Primitive Octave</option>
-                        <option data-model-id="1">88-key polyphony</option>
-                        <option data-model-id="2">Optimized 8-fingered</option>
+                        <option>Primitive Octave</option>
+                        <option>88-key polyphony</option>
+                        <option>Optimized 8-fingered</option>
                     </select>
                 </fieldset>
                 <fieldset class="margin-1-bottom">
@@ -83,11 +84,27 @@
         <div class="component-container padded col col-1">
             <form id="neuralSettings">
                 <fieldset class="margin-1-bottom">
-                    <label class="margin-1-bottom green" for="trainerSettings">Neural Network Settings</label>
+                    <label class="margin-1-bottom orange" for="trainerSettings">Neural Network Settings</label>
                 </fieldset>
 
-                <fieldset class="left">
-                    <button id="btnNetworkListen" class="btn taster green">Play</button>
+                <fieldset>
+                    <button id="btnNetworkStart" class="btn taster green" disabled>Start</button>
+                    <button id="btnNetworkReply" class="btn taster yellow" disabled>Reply</button>
+                    <button id="btnNetworkAuto" class="btn taster blue" disabled>Auto</button>
+                    <button id="btnNetworkStop" class="btn taster red" disabled>Stop</button>
+
+                    <button id="btnNetworkNew" class="margin-1-top btn taster blue">New</button>
+                    <button id="btnNetworkClear" class="margin-1-top btn taster red" disabled>-</button>
+                    <button id="btnNetworkLoad" class="margin-1-top btn taster green">Load</button>
+                    <button id="btnNetworkSave" class="btn taster yellow" disabled>Save</button>
+                </fieldset>
+
+                <fieldset class="margin-1-top">
+                    <select class="width-100" id="networkDataModel">
+                        <option data-model-id="0">Primitive Octave</option>
+                        <option data-model-id="1">88-key polyphony</option>
+                        <option data-model-id="2">Optimized 8-fingered</option>
+                    </select>
                 </fieldset>
             </form>
         </div>
@@ -99,8 +116,8 @@
                 </fieldset>
 
                 <fieldset class="left width-40 margin-1-right relative">
-                    <button id="btnStartTraining" class="btn taster blue">Train</button>
-                    <button id="btnClearTrainingData" class="btn taster red">Clear</button>
+                    <button id="btnStartTraining" class="btn taster blue" disabled>Train</button>
+                    <button id="btnClearTrainingData" class="btn taster red" disabled>Clear</button>
                     <input id="openTrainingDataFile" type="file" placeholder="&quot;trainingData.txt&quot;">
 
                     <label for="openTrainingDataFile" class="right green btn width-50">Load File</label>

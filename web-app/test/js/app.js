@@ -25,6 +25,23 @@ NeuralComposer.init = function() {
     }, () => NeuralComposer.log('Could not initialize MIDI!'));
 };
 
+NeuralComposer.initNetwork = function() {
+    // Network buttons
+    $('#btnNetworkStart').on('click', NeuralComposer.startListening);
+    $('#btnNetworkStop').on('click', NeuralComposer.stopListening);
+    $('#btnNetworkNew').on('click', NeuralComposer.newNetwork);
+    $('#btnNetworkReply').on('click', NeuralComposer.replyNetwork);
+};
+
+NeuralComposer.initTrainer = function() {
+    // Init Trainer Module
+    $('#openTrainingDataFile').change(function() {
+        NeuralComposer.loadFile($('#openTrainingDataFile').val());
+    });
+
+
+};
+
 NeuralComposer.log = function(txt) {
     if (NeuralComposer.$console != null) {
         NeuralComposer.$console.append('<p>' + txt + '</p>');
@@ -41,6 +58,8 @@ NeuralComposer.logEvents= true;
 $(document).ready(function() {
     /* Setup */
     NeuralComposer.init();
+    NeuralComposer.initNetwork();
+    NeuralComposer.initTrainer();
 
     // Init Osc Components
     NeuralComposer.makeKnob($('#oscType'), NeuralComposer.changeOscillatorType);
@@ -60,11 +79,6 @@ $(document).ready(function() {
         NeuralComposer.saveFile(NeuralComposer.trainingData)
     });
 
-    // Init Trainer Module
-    $('#openTrainingDataFile').change(function() {
-        NeuralComposer.loadFile($('#openTrainingDataFile').val());
-    });
-
     $('#btnClearTrainingData').on('click', function(e) {
         e.preventDefault();
 
@@ -82,40 +96,7 @@ $(document).ready(function() {
     });
 
     // Quick train
-    $('#btnStartTraining').on('click', function(e) {
-        e.preventDefault();
-
-        if (NeuralComposer.trainingData.length < 2) {
-            return NeuralComposer.log('Cannot train, no training data!');
-        }
-
-        NeuralComposer.log('Starting Synaptic.js...');
-        NeuralComposer.log('Creating MLP {12-24-24-12}...');
-
-        var network = new synaptic.Architect.Perceptron(12,24,24,12);
-
-        NeuralComposer.log('Creating trainer for Network...');
-        var trainer = new synaptic.Trainer(network);
-
-        NeuralComposer.log('Starting training...');
-        trainer.trainAsync(NeuralComposer.trainingData,{
-            rate: 0.01,
-            iterations: 50000,
-            error: 0.05,
-            shuffle: true,
-            schedule: {
-                every: 5,
-                do: function(data) {
-                    NeuralComposer.log('Current Error: ' + data.error);
-                }
-            },
-            cost: synaptic.Trainer.cost.CROSS_ENTROPY()
-        }).then(results => {
-            console.log('done', results)
-
-            console.log(network.activate([1,0,0,0,0,0,0,0,0,0,0,0]));
-        });
-    });
+    $('#btnStartTraining').on('click', NeuralComposer.startTraining);
 
 /*
     NeuralComposer.log('Generating training set for Trainer...');

@@ -30,11 +30,11 @@ NeuralComposer.checkIfDataValid = function(trainingData) {
 };
 
 NeuralComposer.trainingDataModels = {
-    0: {
+    'Primitive Octave': {
         baseNote: -1,
 
         isNoteWithinRange: function(note) {
-            if (note >= NeuralComposer.trainingDataModels[0].baseNote && note < NeuralComposer.trainingDataModels[0].baseNote + 12) {
+            if (note >= NeuralComposer.trainingDataModels['Primitive Octave'].baseNote && note < NeuralComposer.trainingDataModels['Primitive Octave'].baseNote + 12) {
                 return true;
             }
             else {
@@ -46,16 +46,16 @@ NeuralComposer.trainingDataModels = {
         setBaseNote: function(note) {
             NeuralComposer.log('Base-note selected: ' + note);
 
-            NeuralComposer.trainingDataModels[0].baseNote = note;
+            NeuralComposer.trainingDataModels['Primitive Octave'].baseNote = note;
 
-            NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].inputNote;
+            NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels['Primitive Octave'].inputNote;
         },
 
         logger: {
             formatData: function(note) {
                 var result = [0,0,0,0,0,0,0,0,0,0,0,0];
 
-                var bn = NeuralComposer.trainingDataModels[0].baseNote;
+                var bn = NeuralComposer.trainingDataModels['Primitive Octave'].baseNote;
 
                 result[note - bn] = 1;
 
@@ -63,13 +63,13 @@ NeuralComposer.trainingDataModels = {
             },
 
             logInput: function(note) {
-                NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].input = NeuralComposer.trainingDataModels[0].logger.formatData(note);
+                NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].input = NeuralComposer.trainingDataModels['Primitive Octave'].logger.formatData(note);
 
                 console.log(NeuralComposer.trainingData);
             },
 
             logOutput: function(note) {
-                NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].output = NeuralComposer.trainingDataModels[0].logger.formatData(note);
+                NeuralComposer.trainingData[NeuralComposer.trainingData.length - 1].output = NeuralComposer.trainingDataModels['Primitive Octave'].logger.formatData(note);
 
                 // Allow saving if not already allowed
                 $('#btnTrainingDataSave').attr('disabled', false);
@@ -80,30 +80,30 @@ NeuralComposer.trainingDataModels = {
 
         inputNote: function(note) {
             // Not within range
-            if (!NeuralComposer.trainingDataModels[0].isNoteWithinRange(note)) {
+            if (!NeuralComposer.trainingDataModels['Primitive Octave'].isNoteWithinRange(note)) {
                 return false;
             }
 
             NeuralComposer.log('Input note: ' + note + '. Entries in data set: ' + NeuralComposer.trainingData.length);
-            NeuralComposer.trainingDataModels[0].logger.logInput(note);
+            NeuralComposer.trainingDataModels['Primitive Octave'].logger.logInput(note);
 
-            NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].outputNote;
+            NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels['Primitive Octave'].outputNote;
         },
 
         outputNote: function(note) {
             // Not within range
-            if (!NeuralComposer.trainingDataModels[0].isNoteWithinRange(note)) {
+            if (!NeuralComposer.trainingDataModels['Primitive Octave'].isNoteWithinRange(note)) {
                 return false;
             }
 
             NeuralComposer.log('Output note: ' + note + '. Entries in data set: ' + NeuralComposer.trainingData.length);
 
-            NeuralComposer.trainingDataModels[0].logger.logOutput(note);
+            NeuralComposer.trainingDataModels['Primitive Octave'].logger.logOutput(note);
 
-            NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[0].inputNote;
+            NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels['Primitive Octave'].inputNote;
         },
 
-        default: (note) => NeuralComposer.trainingDataModels[0].setBaseNote(note)
+        default: (note) => NeuralComposer.trainingDataModels['Primitive Octave'].setBaseNote(note)
     }
 };
 
@@ -117,7 +117,7 @@ NeuralComposer.startTrainingData = function(e) {
     $('#btnClearTrainingData').attr('disabled', true);
     $('#btnTrainingDataStop').attr('disabled', false);
 
-    NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[NeuralComposer.trainingDataModel.data('model-id')].default;
+    NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[NeuralComposer.trainingDataModel.val()].default;
 
     // Save button functions
     $('#btnTrainingDataSave').on('click', function(e) {

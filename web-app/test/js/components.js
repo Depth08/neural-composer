@@ -10,6 +10,7 @@ NeuralComposer.makeKnob = function(component, task) {
     var value = component.val();
     var deg = (value * 3) - 150;
     component.parent().find('.rotor').css({'transform': 'rotate(' + deg + 'deg)'});
+
     task(value);
 
     component.mousedown(function() {
