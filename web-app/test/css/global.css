@@ -86,6 +86,10 @@ footer {
     width: 10%;
 }
 
+.width-40 {
+    width: 40%;
+}
+
 .width-50 {
     width: 50%;
 }
@@ -111,6 +115,14 @@ footer {
     top: 0;
 }
 
+.position-bottom {
+    bottom: 0;
+}
+
+.position-right {
+    right: 0;
+}
+
 /* Spacers */
 .padded {
     padding: 1rem;
@@ -132,6 +144,18 @@ footer {
     min-height: 60rem;
 }
 
+.margin-1 {
+    margin: 1rem;
+}
+
+.margin-1-left {
+    margin-left: 1rem;
+}
+
+.margin-1-right {
+    margin-right: 1rem;
+}
+
 .margin-1-top {
     margin-top: 1rem;
 }
@@ -150,6 +174,10 @@ footer {
 
 .margin-2-bottom {
     margin-bottom: 2rem;
+}
+
+.margin-4-top {
+    margin-top: 4rem;
 }
 
 .margin-top-25 {

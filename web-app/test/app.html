@@ -17,6 +17,7 @@
     <script src="js/trainingDataModule.js"></script>
     <script src="js/audio.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/trainer.js"></script>
 </head>
 <body>
 
@@ -24,7 +25,7 @@
         <h2>Neural Composer</h2>
 
         <div class="oscillator component-container padded col col-1">
-            <span class="screen margin-1-bottom"><img class="width-100" src="img/saw.svg"/></span>
+            <span class="screen margin-1-bottom"><img class="width-100" src="img/sine.svg"/></span>
             <form id="oscillatorOneSettings">
                 <fieldset class="left">
                     <label class="margin-1-bottom blue" for="oscType">Type</label>
@@ -38,7 +39,7 @@
                 <fieldset class="left">
                     <label class="margin-1-bottom red" for="oscDetune">Tune</label>
                     <span class="knob relative">
-                        <input class="knob absolute" id="oscDetune" name="type" type="range" min="0" max="100" value="0">
+                        <input class="knob absolute" id="oscDetune" name="type" type="range" min="0" max="100" value="50">
                         <span class="rotor absolute"><span class="bullet"></span></span>
                         <span class="cap absolute"></span>
                     </span>
@@ -47,7 +48,7 @@
                 <fieldset class="left">
                     <label class="margin-1-bottom yellow" for="oscGain">Gain</label>
                     <span class="knob relative">
-                        <input class="knob absolute" id="oscGain" name="type" type="range" min="0" max="100" value="0">
+                        <input class="knob absolute" id="oscGain" name="type" type="range" min="0" max="100" value="20">
                         <span class="rotor absolute"><span class="bullet"></span></span>
                         <span class="cap absolute"></span>
                     </span>
@@ -77,28 +78,69 @@
                     <button id="btnSaveTrainingData" class="btn normal" style="background-color: #1fbb70">Save</button>
                 </fieldset>
             </form>
-
         </div>
 
         <div class="component-container padded col col-1">
-            <form id="trainerSettings">
+            <form id="neuralSettings">
                 <fieldset class="margin-1-bottom">
-                    <label class="margin-1-bottom orange" for="trainerSettings">Network Trainer</label>
-                    <input id="openTrainingDataFile" type="file" placeholder="&quot;trainingData.txt&quot;">
-                    <label for="openTrainingDataFile" class="green">Load File</label>
+                    <label class="margin-1-bottom green" for="trainerSettings">Neural Network Settings</label>
                 </fieldset>
 
-                <fieldset>
-
+                <fieldset class="left">
+                    <button id="btnNetworkListen" class="btn taster green">Play</button>
                 </fieldset>
             </form>
         </div>
 
         <div class="component-container padded col col-2">
-            <form id="neuralSettings">
+            <form id="trainerSettings">
                 <fieldset class="margin-1-bottom">
-                    <label class="margin-1-bottom yellow" for="trainerSettings">Neural Network Settings</label>
-                    <button id="btnStartTraining" class="btn taster red">Train</button>
+                    <label class="margin-1-bottom red" for="trainerSettings">Network Trainer</label>
+                </fieldset>
+
+                <fieldset class="left width-40 margin-1-right relative">
+                    <button id="btnStartTraining" class="btn taster blue">Train</button>
+                    <button id="btnClearTrainingData" class="btn taster red">Clear</button>
+                    <input id="openTrainingDataFile" type="file" placeholder="&quot;trainingData.txt&quot;">
+
+                    <label for="openTrainingDataFile" class="right green btn width-50">Load File</label>
+                    <span id="trainingDataLoadedLed" class="margin-1-bottom margin-1-right led green absolute position-bottom position-right"></span>
+                </fieldset>
+
+                <fieldset class="margin-1-top width-50">
+                    <label class="margin-1-bottom blue" for="costFunction">Cost Function</label>
+                    <select class="width-100" id="costFunction">
+                        <option data-model-id="0">Cross Entropy</option>
+                        <option data-model-id="1">MSE</option>
+                        <option data-model-id="2">Binary</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="left">
+                    <label class="margin-1-bottom red" for="error">Error</label>
+                    <span class="knob relative">
+                        <input class="knob absolute" id="error" name="type" type="range" min="0" max="100" value="20">
+                        <span class="rotor absolute"><span class="bullet"></span></span>
+                        <span class="cap absolute"></span>
+                    </span>
+                </fieldset>
+
+                <fieldset class="left">
+                    <label class="margin-1-bottom blue" for="learningRate">Rate</label>
+                    <span class="knob relative">
+                        <input class="knob absolute" id="learningRate" name="type" type="range" min="0" max="100" value="20">
+                        <span class="rotor absolute"><span class="bullet"></span></span>
+                        <span class="cap absolute"></span>
+                    </span>
+                </fieldset>
+
+                <fieldset class="left">
+                    <label class="margin-1-bottom green" for="delay">Delay</label>
+                    <span class="knob relative">
+                        <input class="knob absolute" id="delay" name="type" type="range" min="0" max="100" value="10">
+                        <span class="rotor absolute"><span class="bullet"></span></span>
+                        <span class="cap absolute"></span>
+                    </span>
                 </fieldset>
             </form>
         </div>

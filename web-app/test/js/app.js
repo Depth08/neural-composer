@@ -47,6 +47,11 @@ $(document).ready(function() {
     NeuralComposer.makeKnob($('#oscDetune'), NeuralComposer.changeOscTuning);
     NeuralComposer.makeKnob($('#oscGain'), NeuralComposer.changeGain);
 
+    // Init Trainer Components
+    NeuralComposer.makeKnob($('#error'), NeuralComposer.changeError);
+    NeuralComposer.makeKnob($('#learningRate'), NeuralComposer.changeLearningRate);
+    NeuralComposer.makeKnob($('#delay'), NeuralComposer.changeDelay);
+
     // Init Training Data Module
     $('#btnTrainingDataStart').on('click', NeuralComposer.startTrainingData);
     $('#btnTrainingDataStop').on('click', NeuralComposer.stopTrainingData);
@@ -58,6 +63,22 @@ $(document).ready(function() {
     // Init Trainer Module
     $('#openTrainingDataFile').change(function() {
         NeuralComposer.loadFile($('#openTrainingDataFile').val());
+    });
+
+    $('#btnClearTrainingData').on('click', function(e) {
+        e.preventDefault();
+
+        NeuralComposer.trainingData = [];
+        NeuralComposer.trainingData.push({});
+
+        NeuralComposer.log('Training data has been discarded');
+
+        $('#trainingDataLoadedLed').removeClass('active');
+
+        // Clearing input filename causes event, so unbind & rebind
+        $('#openTrainingDataFile').unbind().val('').change(function() {
+            NeuralComposer.loadFile($('#openTrainingDataFile').val());
+        });
     });
 
     // Quick train
@@ -89,7 +110,11 @@ $(document).ready(function() {
                 }
             },
             cost: synaptic.Trainer.cost.CROSS_ENTROPY()
-        }).then(results => console.log('done', results));
+        }).then(results => {
+            console.log('done', results)
+
+            console.log(network.activate([1,0,0,0,0,0,0,0,0,0,0,0]));
+        });
     });
 
 /*

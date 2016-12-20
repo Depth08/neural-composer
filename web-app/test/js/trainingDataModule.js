@@ -114,6 +114,7 @@ NeuralComposer.startTrainingData = function(e) {
 
     // Disable Start button, enable stop button
     $('#btnTrainingDataStart').attr('disabled', true);
+    $('#btnClearTrainingData').attr('disabled', true);
     $('#btnTrainingDataStop').attr('disabled', false);
 
     NeuralComposer.trainingDataAction = NeuralComposer.trainingDataModels[NeuralComposer.trainingDataModel.data('model-id')].default;
@@ -142,7 +143,9 @@ NeuralComposer.startTrainingData = function(e) {
             $('#btnTrainingDataUndo').attr('disabled', true);
             $('#btnTrainingDataSave').attr('disabled', true);
 
-            NeuralComposer.trainingData = [{}];
+            NeuralComposer.trainingData = [];
+            NeuralComposer.trainingData.push({});
+            $('#trainingDataLoadedLed').removeClass('active');
         }
     });
 
@@ -155,10 +158,10 @@ NeuralComposer.stopTrainingData = function(e) {
     NeuralComposer.trainingDataModel = null;
 
     // Disable Start button, enable stop button
-    $('#btnTrainingDataTake').unbind();
-    $('#btnTrainingDataSave').attr('disabled', true);
+    $('#btnTrainingDataSave').attr('disabled', true).unbind();
     $('#trainerDataSettings').find('.btn.taster').attr('disabled', true);
     $('#btnTrainingDataStart').attr('disabled', false);
+    $('#btnClearTrainingData').attr('disabled', false);
 
     NeuralComposer.log('Training data collection ended');
 };

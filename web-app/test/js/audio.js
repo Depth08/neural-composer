@@ -12,7 +12,7 @@ NeuralComposer.convertMidiToFrequency = function(note) {
 };
 
 // Defaults
-NeuralComposer.oscillatorType = 'sawtooth';
+NeuralComposer.oscillatorType = 'sine';
 NeuralComposer.oscillatorTune = 440; // Standard Concert Pitch
 
 NeuralComposer.oscillators = {};

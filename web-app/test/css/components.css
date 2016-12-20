@@ -12,7 +12,7 @@
     box-sizing: border-box;
     border-radius: 5px;
     background-color: #3c3b3b;
-    height: 25rem;
+    height: 26rem;
 }
 
 .component-container label {
@@ -96,7 +96,7 @@ input[type=range].knob::-webkit-slider-thumb {
     width: 1rem;
 }
 
-input[type=text] {
+input[type=text], input[type=number] {
     color: white;
     padding: 0.5rem;
     border: 0;
@@ -206,8 +206,6 @@ span.knob {
 
 label.green {
     background-color: #1fbb70;
-    text-transform: none;
-    width: auto;
 }
 
 .led {
@@ -220,6 +218,10 @@ label.green {
 
 .led.orange.active {
     background-color: #e84a00;
+}
+
+.led.green.active {
+    background-color: #1fbb70;
 }
 
 /* Columns */

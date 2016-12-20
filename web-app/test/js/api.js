@@ -36,8 +36,11 @@ NeuralComposer.loadFile = function(path) {
         type: 'get',
         data: { 'load': fileName },
         success: function(data, textStatus, jqXHR) {
-            if (NeuralComposer.checkIfDataValid(data)) NeuralComposer.trainingData = JSON.parse(data);
-            NeuralComposer.log('Data successfully loaded!');
+            if (NeuralComposer.checkIfDataValid(data)) {
+                NeuralComposer.log('Data successfully loaded!');
+                $('#trainingDataLoadedLed').addClass('active');
+                NeuralComposer.trainingData = JSON.parse(data);
+            }
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(errorThrown);

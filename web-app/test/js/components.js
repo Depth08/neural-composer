@@ -6,6 +6,12 @@
  */
 
 NeuralComposer.makeKnob = function(component, task) {
+    // Initialize the knobs to their init positions
+    var value = component.val();
+    var deg = (value * 3) - 150;
+    component.parent().find('.rotor').css({'transform': 'rotate(' + deg + 'deg)'});
+    task(value);
+
     component.mousedown(function() {
         NeuralComposer.knobEvent.knob = $(this);
 
@@ -15,7 +21,7 @@ NeuralComposer.makeKnob = function(component, task) {
 
             task(value);
 
-            NeuralComposer.logParameterChanges ? NeuralComposer.log('Type value: ' + value) : console.log() ;
+            NeuralComposer.logParameterChanges ? NeuralComposer.log('Type value: ' + value) : console.log();
             NeuralComposer.knobEvent.knob.parent().find('.rotor').css({'transform': 'rotate(' + deg + 'deg)'});
         }, 30);
     }).mouseup(function() {
