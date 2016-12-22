@@ -95,7 +95,7 @@ $(document).ready(function() {
         });
     });
 
-    // Quick train
+    // Training start
     $('#btnStartTraining').on('click', NeuralComposer.startTraining);
 
 /*
