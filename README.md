@@ -134,6 +134,7 @@ Logboek
 | 24/11    | Na goedkeuring van de begeleidende docent ben ik overgestapt naar een andere taal/library. Binnen JavaScript biedt Synaptic.js zelfs een beter en simpeler + beter gedocumenteerde library voor neurale netwerken. Deze keer wél met expliciet een support voor LSTMs. Hier zat ik op te wachten! Het MIDI-probleem kan van JUCE makkelijk overgeschakeld worden naar Web API in Google Chrome, waar MIDI gewoon in de browser werkt. Dit wist ik niet, en had ik dit geweten, dan had ik dit eerst gekozen. Omdat mijn JavaScript vele malen beter is dan C++, en omdat het moderner is. Zonder al te veel moeite. ![Synaptic.js](http://caza.la/synaptic/favicon.png) |
 | 9/12    | Om te kunnen werken met een NN is training-data vereist. Hiervoor is dus redelijk wat tijd genomen geweest om de ingave ervan te vergemakkelijken. In dit eerste data-model: "Primitive Octave" wordt uitgegaan van een serie van 12 noten. Dit worden de 12 input nodes. Er moet dus een base note geselecteerd worden om de conversie van 88 toetsen naar 12 te gaan. De base note + 12 is de range waarin mag worden gewerkt. Het verzamelen van deze data gebeurt iteratief. Door een input node, en de verwachte volgende noot achter elkaar te spelen. De Data Collector module in de test-app zorgt hier dus voor een gemakkelijke ingave. ![Data Collector](img/trainingDataCollector.PNG) |
 | 20/12    | Een doorbraak! Vandaag de eerste outputs kunnen krijgen in klankvorm voor de Primitive Octave methode. Ik kan nu verschillende training-sets testen om te zien wat hun effecten zijn op de output. De volgende stap is om de 8-fingered optimized methode uit te werken. Voor 88-key polyphony is er geen tijd. Bovendien heb ik een sterk vermoeden dat dit te veel zal zijn omdat deze methode werkt met 88 input nodes. De interface draagt zijn steentje bij om het testen te vergemakkelijken. Het ziet er intimiderend uit, maar om die reden zal er documentatie voorzien worden. ![Netwerk instellingen](img/networkSettings.PNG) |
+| 02/01    | De ontwikkeling wordt afgerond, een demonstratie-filmpje werd gemaakt: https://youtu.be/qLIxqode5f0. Begin van de rapportering. |
 
 Tussentijdse rapportering #1
 ---------------------------
@@ -199,9 +200,3 @@ Tussentijdse rapportering #2
 | **Analyse noden** | A |
 | **Initiatief - inzet** | B |
 | **Rapportering** | B |
-
-#### @joris.maervoet - <20/12/2016>
-> Rafaël, je tussenrapportering van 2/12 is duidelijk. Ik zie dat je ondertussen min of meer de schakel hebt rondgemaakt. Zoals ik al zei, heb je met erg veel nieuwe concepten en technologieën kennisgemaakt in dit project, ze op een nuttige manier toegepast en heb je erg veel bijgeleerd. In deze zin is je project absoluut geslaagd.
->
-> Indien je heel wat problemen ondervindt met de "8-fingered optimized methode", rapporteer ze dan gewoon en/of rapporteer een test en stop dan gerust met implementeren en testen. Voorzie voldoende tijd voor het samenstellen van je portfolio.
-
