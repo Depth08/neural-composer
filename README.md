@@ -200,3 +200,28 @@ Tussentijdse rapportering #2
 | **Analyse noden** | A |
 | **Initiatief - inzet** | B |
 | **Rapportering** | B |
+
+Eindrapportering - 08/01/2017
+-----------------------------
+De einddoelen zijn helaas niet allemaal bereikt. Er is in de primitive-octave techniek wel een training mogelijk geweest. Deze primitieve techniek is een goed startpunt voor verdere uitwerking geweest. Hiermee kon ik aantonen dat het praktisch wel mogelijk was om een netwerk te trainen. Er werd verder gewerkt met de 8-fingered optimized techniek. Helaas bleek de werkwijze binnen deze techniek niet geschikt genoeg om het probleem te kunnen benaderen. Het rapport werd opgesteld, en dit was ook één van de einddoelen. Dit rapport beschrijft in detail waarom de einddoelen konden worden bereikt.
+
+#### Reflectie
+Dit onderwerp was vrij uitdagend. Het is even nadenken over hoe intimiderend het was toen het project van start ging, en al de kennis die doorheen de maanden verworven werd. Qua aanpak heb ik gedaan wat ik kon. Ik denk niet dat er een mogelijkheid was om het beter te doen met mijn capaciteiten. Er waren tijden waar veel grondig onderzoek nodig was. Dit gebeurde vooral in het begin. Later was er veel geworstel met C++. Dit vertraagde alles. Gelukkig had ik de knoop doorgehakt, en verder gewerkt in JavaScript. Dit zijn zaken die ik niet kon inschatten. Wat goed was, de verworven kennis en het primitieve resultaat dat behaald werd (in plaats van sprinten naar een hoger doel). Werken in kleine stappen dus. Wat beter kon is inschatten van de moeilijkheidsgraad van de volgende stap, en onderzoek rustiger en grondiger maken. Er werd te vaak gezocht naar specifieke informatie zonder artikel per artikel grondig te lezen.
+
+#### Inhoud Portfolio
+**old-juice:** Oude applicaties in C++ JUCE
+**web-app:** De web-applicatie gemaakt in JS met synaptic
+**Projecten_2__Neural_Composer.pdf:** Rapport van de gemaakte demonstrator
+
+#### Bronnenlijst
+Zie bronnen in rapport
+
+#### Evaluatie
+| Topic    | Zelf-evaluatie       |
+| -------- | -------------------- |
+| **Nieuw verworven kennis** | A |
+| **Toepassing aangetoond** | B |
+| **Planning** | D |
+| **Analyse noden** | C |
+| **Initiatief - inzet** | B |
+| **Rapportering** | C |
