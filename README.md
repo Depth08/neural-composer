@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/1874332/73597714-44e72580-452f-11ea-88ec-061f3723c200.png)
+
 Project 2 - opvolgingsdocument Academiejaar 2016-2017
 =====================================================
 
